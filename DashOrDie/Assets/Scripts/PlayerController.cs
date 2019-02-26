@@ -26,8 +26,11 @@ public class PlayerController : MonoBehaviour
     private float dashCooldownTime = 0f;
     private bool buttonDownDashRight;
     private bool buttonDownDashLeft;
-    //private bool buttonDownDashUp;
+    private bool buttonDownDashUp;
     private bool buttonDownDashDown;
+    private bool dashIsHorizontal;
+    private bool dashIsDownward;
+    private bool dashIsUpward;
     
 
 
@@ -120,14 +123,31 @@ public class PlayerController : MonoBehaviour
         {
             dashIsOnCooldown = true;
             dashTimeElapsed += Time.deltaTime;
-            animator.SetBool("IsDashing", true);
+
+            if (dashIsHorizontal == true)
+            {
+                animator.SetBool("IsDashing", true);
+            }
+            else if (dashIsDownward == true)
+            {
+                animator.SetBool("IsDashingDown", true);
+            }
+            else if (dashIsUpward == true)
+            {
+                animator.SetBool("IsDashingUp", true);
+            }
+            
 
             if (dashTimeElapsed >= dashDuration)
             {
                 dashIsActive = false;
+                dashIsHorizontal = false;
+                dashIsDownward = false;
                 dashTimeElapsed = 0f;
                 trail.SetActive(false);
                 animator.SetBool("IsDashing", false);
+                animator.SetBool("IsDashingDown", false);
+                animator.SetBool("IsDashingUp", false);
             }
         }
 
@@ -154,12 +174,12 @@ public class PlayerController : MonoBehaviour
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-        /*else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsActive == false && dashIsOnCooldown == false)
+       else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsActive == false && dashIsOnCooldown == false)
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
-        }*/
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsActive == false && dashIsOnCooldown == false)
+        }
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsActive == false && dashIsOnCooldown == false && isGrounded == false)
         {
             buttonDownDashDown = true;
             trail.SetActive(true);
@@ -185,6 +205,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.right * dashPower;
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             dashIsActive = true;
+            dashIsHorizontal = true;
             buttonDownDashRight = false;
         }
         
@@ -193,22 +214,25 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.left * dashPower;
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             dashIsActive = true;
+            dashIsHorizontal = true;
             buttonDownDashLeft = false;
         }
 
-        /*if (buttonDownDashUp == true)
+        if (buttonDownDashUp == true)
         {
             rb.velocity = Vector2.up * dashPower;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             dashIsActive = true;
+            dashIsUpward = true;
             buttonDownDashUp = false;
-        }*/
+        }
 
         if (buttonDownDashDown == true)
         {
             rb.velocity = Vector2.down * dashPower;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             dashIsActive = true;
+            dashIsDownward = true;
             buttonDownDashDown = false;
         }
     }
