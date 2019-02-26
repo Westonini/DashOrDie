@@ -31,8 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool dashIsHorizontal;
     private bool dashIsDownward;
     private bool dashIsUpward;
-    
-
+    private bool dashedUpOnce;
 
     [Space]
     [Header("Ground Check Settings:")]
@@ -56,9 +55,6 @@ public class PlayerController : MonoBehaviour
 
         //Sets extraJumpCountReset to the value of extraJumpCount so it can later be reset back to the original value.
         extraJumpCountReset = extraJumpCount;
-
-        //Sets groundedExtraTimeReset to the value of groundedExtraTime so it can later be reset back to the original value.
-        //groundedExtraTimeReset = groundedExtraTime;
     }
 
 
@@ -103,6 +99,9 @@ public class PlayerController : MonoBehaviour
         {
             extraJumpCount = extraJumpCountReset;
             animator.SetBool("IsJumping", false);
+
+            dashedUpOnce = false;
+            animator.SetBool("IsDashingUp", false);
         }
 
         //If the player isn't facing right but is moving right, flip the sprite so it's facing right.
@@ -162,7 +161,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
        //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
         if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 && dashIsActive == false && dashIsOnCooldown == false)
         {
@@ -174,7 +172,7 @@ public class PlayerController : MonoBehaviour
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-       else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsActive == false && dashIsOnCooldown == false)
+       else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsActive == false && dashIsOnCooldown == false && dashedUpOnce == false)
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
@@ -184,6 +182,8 @@ public class PlayerController : MonoBehaviour
             buttonDownDashDown = true;
             trail.SetActive(true);
         }
+
+
         
     }
     void FixedUpdate()
@@ -207,6 +207,7 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsHorizontal = true;
             buttonDownDashRight = false;
+
         }
         
         if (buttonDownDashLeft == true)
@@ -225,6 +226,8 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsUpward = true;
             buttonDownDashUp = false;
+            dashedUpOnce = true;
+
         }
 
         if (buttonDownDashDown == true)

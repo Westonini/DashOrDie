@@ -1044,8 +1044,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196052351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019, y: -0.0046, z: 0}
-  m_LocalScale: {x: 0.1702292, y: 0.07174256, z: 0.039491955}
+  m_LocalPosition: {x: 0.005, y: -0.0046, z: 0}
+  m_LocalScale: {x: 0.13192762, y: 0.07174256, z: 0.039491955}
   m_Children: []
   m_Father: {fileID: 1788816365}
   m_RootOrder: 0
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   dashCooldownDuration: 0.35
   isGrounded: 1
   groundCheck: {fileID: 2119084846}
-  checkRadius: 0.3
+  checkRadius: 0.18
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
