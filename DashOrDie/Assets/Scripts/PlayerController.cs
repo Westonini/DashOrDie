@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour
         //Ground check. If the ground layer is touching the radius (which is an empty object placed under the player) then it's grounded.
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
-        //If the player presses the jump key AND they have jumps avaliable, they'll jump depending on the value of the jumpHeight variable.
-        if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && dashIsActive == false)
+        //If the player presses the jump key AND they have jumps avaliable, they'll jump depending on the value of the jumpHeight variable. Plays jumping animation.
+        if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && isGrounded == false && dashIsActive == false)
         {
             rb.velocity = Vector2.up * jumpHeight;
             extraJumpCount--;
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             Invoke("IsJumpingTurnOff", 0.05f);
         }
 
-        //If the player isn't jumping but isn't grounding, assume they're falling. Then if they aren't dashing, play the falling animation.
+        //If the player isn't jumping but isn't grounding and isn't dashing, assume they're falling and play falling animation.
         if (isGrounded == false && dashIsActive == false && animator.GetBool("IsJumping") == false)
         {
             animator.SetBool("IsFalling", true);
@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+       //While dash is on cooldown, dash is unusable.
        if (dashIsOnCooldown == true)
         {
             dashCooldownTime += Time.deltaTime;
@@ -256,6 +257,7 @@ public class PlayerController : MonoBehaviour
 
     void IsJumpingTurnOff()
     {
+        //This is later needed to invoke because since the player starts off grounded, it would reset immediately unless there's a timer.
         isJumping = false;
     }
 }

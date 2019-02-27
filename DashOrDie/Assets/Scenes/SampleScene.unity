@@ -2206,8 +2206,8 @@ MonoBehaviour:
   dashPower: 12
   dashIsActive: 0
   dashIsOnCooldown: 0
-  dashDuration: 0.15
-  dashCooldownDuration: 0.35
+  dashDuration: 0.17
+  dashCooldownDuration: 0.37
   isGrounded: 1
   groundCheck: {fileID: 2119084846}
   checkRadius: 0.18

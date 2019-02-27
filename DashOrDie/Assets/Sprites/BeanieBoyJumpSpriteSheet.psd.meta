@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: e1bb26fc766f65c499aefb0d1e767b02
+guid: 3d378e34e8ead6d4d85428ce0ca8fae9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BeanieBoyWalkRSpriteSheet_0
-    21300002: BeanieBoyWalkRSpriteSheet_1
-    21300004: BeanieBoyWalkRSpriteSheet_2
-    21300006: BeanieBoyWalkRSpriteSheet_3
+    21300000: BeanieBoyJumpSpriteSheet_0
+    21300002: BeanieBoyJumpSpriteSheet_1
+    21300004: BeanieBoyJumpSpriteSheet_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -88,7 +87,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeanieBoyWalkRSpriteSheet_0
+      name: BeanieBoyJumpSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -102,13 +101,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99672a7c28c3a0a4099fe998eb3d03e4
+      spriteID: e593434035849304fa2cb05665e115d0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BeanieBoyWalkRSpriteSheet_1
+      name: BeanieBoyJumpSpriteSheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -122,13 +121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 581343cec93ad23448564742a0909781
+      spriteID: 51331c56f953a4e49b9cba8707c5ea63
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BeanieBoyWalkRSpriteSheet_2
+      name: BeanieBoyJumpSpriteSheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -142,27 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b991f9648e744c444a87c93bbaaf8b1a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BeanieBoyWalkRSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5671c75da32768e47a1f49863af1af2e
+      spriteID: 89b6f5aca6014614fad1086700c26376
       vertices: []
       indices: 
       edges: []
@@ -170,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 685ac38e1bd5c1d4ca9638818d1dbd1a
+    spriteID: 7fcf4db8e941a464b920c5d461398494
     vertices: []
     indices: 
     edges: []
