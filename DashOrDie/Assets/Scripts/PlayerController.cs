@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         //If the player moves, the walk animation plays
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-
+       
         //Ground check. If the ground layer is touching the radius (which is an empty object placed under the player) then it's grounded.
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
