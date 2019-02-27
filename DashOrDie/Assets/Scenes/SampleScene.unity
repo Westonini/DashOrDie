@@ -1336,51 +1336,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 867614497}
     m_Modifications:
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.07174256
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1702292
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.019
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0046
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627207, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066177280523627206, guid: a431487d1ec04944e8919bac4bb7a712,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: fe4bcb4a4d77d9e4d9eb4545aef9805e, type: 2}
     - target: {fileID: 8066177281117675463, guid: a431487d1ec04944e8919bac4bb7a712,
         type: 3}
       propertyPath: m_Name
@@ -1461,6 +1416,51 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.07174256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1702292
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627200, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627207, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066177280523627206, guid: a431487d1ec04944e8919bac4bb7a712,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fe4bcb4a4d77d9e4d9eb4545aef9805e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a431487d1ec04944e8919bac4bb7a712, type: 3}
 --- !u!1 &1718052183
@@ -2202,6 +2202,7 @@ MonoBehaviour:
   movementSpeed: 4
   jumpHeight: 7
   extraJumpCount: 1
+  isJumping: 0
   dashPower: 12
   dashIsActive: 0
   dashIsOnCooldown: 0

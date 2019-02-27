@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public int jumpHeight;
     public int extraJumpCount;
     private int extraJumpCountReset;
+    public bool isJumping;
 
     public int dashPower;
     public bool dashIsActive;
@@ -71,37 +72,36 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpHeight;
             extraJumpCount--;
+            animator.SetBool("IsJumping", true);
+            isJumping = true;
+            Invoke("IsJumpingTurnOff", 0.05f);
         }
         else if (Input.GetButtonDown("Jump") && isGrounded == true && dashIsActive == false)
         {
             rb.velocity = Vector2.up * jumpHeight;
+            animator.SetBool("IsJumping", true);
+            isJumping = true;
+            Invoke("IsJumpingTurnOff", 0.05f);
         }
 
-        //While moving in air, play IsJumping Animation, otherwise play idle animation. If the player is dashing, don't play the jumping animation (so it can instead play the dash animation).
-        if (isGrounded == false && horizontalInput == 0)
+        //If the player isn't jumping but isn't grounding, assume they're falling. Then if they aren't dashing, play the falling animation.
+        if (isGrounded == false && dashIsActive == false && animator.GetBool("IsJumping") == false)
         {
-            animator.SetBool("IsJumping", false);
-        }
-        else if (isGrounded == false)
-        {
-            if (dashIsActive == false)
-            {
-                animator.SetBool("IsJumping", true);
-            }
-            else if (dashIsActive == true)
-            {
-                animator.SetBool("IsJumping", false);
-            }
+            animator.SetBool("IsFalling", true);
         }
 
         //Once the player touches the ground, their jump count gets reset to whatever it was originally set to.
         if (isGrounded == true)
         {
             extraJumpCount = extraJumpCountReset;
-            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
 
             dashedUpOnce = false;
             animator.SetBool("IsDashingUp", false);
+        }
+        if (isGrounded == true && isJumping == false)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
         //If the player isn't facing right but is moving right, flip the sprite so it's facing right.
@@ -120,6 +120,10 @@ public class PlayerController : MonoBehaviour
        //When dash is activated, play dashing animation.
        if (dashIsActive == true)
         {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
+
             dashIsOnCooldown = true;
             dashTimeElapsed += Time.deltaTime;
 
@@ -142,6 +146,7 @@ public class PlayerController : MonoBehaviour
                 dashIsActive = false;
                 dashIsHorizontal = false;
                 dashIsDownward = false;
+                dashIsUpward = false;
                 dashTimeElapsed = 0f;
                 trail.SetActive(false);
                 animator.SetBool("IsDashing", false);
@@ -249,6 +254,9 @@ public class PlayerController : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-
+    void IsJumpingTurnOff()
+    {
+        isJumping = false;
+    }
 }
 
