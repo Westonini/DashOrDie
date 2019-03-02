@@ -72,9 +72,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpHeight;
             extraJumpCount--;
-            animator.SetBool("IsJumping", true);
-            isJumping = true;
-            Invoke("IsJumpingTurnOff", 0.05f);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsMidAirJumping", true);
+            //isJumping = true;
+            //Invoke("IsJumpingTurnOff", 0.05f);
         }
         else if (Input.GetButtonDown("Jump") && isGrounded == true && dashIsActive == false)
         {
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the player isn't jumping but isn't grounding and isn't dashing, assume they're falling and play falling animation.
-        if (isGrounded == false && dashIsActive == false && animator.GetBool("IsJumping") == false)
+        if (isGrounded == false && dashIsActive == false && animator.GetBool("IsJumping") == false && animator.GetBool("IsMidAirJumping") == false)
         {
             animator.SetBool("IsFalling", true);
         }
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true && isJumping == false)
         {
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsMidAirJumping", false);
         }
 
         //If the player isn't facing right but is moving right, flip the sprite so it's facing right.
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsMidAirJumping", false);
             animator.SetBool("IsFalling", false);
 
             dashIsOnCooldown = true;
