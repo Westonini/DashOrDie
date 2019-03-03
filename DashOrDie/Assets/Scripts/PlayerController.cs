@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsMidAirJumping", true);
 
+            FindObjectOfType<AudioManagerScript>().Play("AirJump");
+
         }
         //Initial jump from the ground. Plays jumping animation. Can't jump while dash is active.
         else if (Input.GetButtonDown("Jump") && isGrounded == true && dashIsActive == false)
@@ -83,6 +85,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsJumping", true);
             isJumping = true;
             Invoke("IsJumpingTurnOff", 0.05f);
+
+            FindObjectOfType<AudioManagerScript>().Play("Jump");
         }
 
         //If the player isn't jumping but isn't grounding and isn't dashing, assume they're falling and play falling animation.
@@ -223,7 +227,7 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsHorizontal = true;
             buttonDownDashRight = false;
-
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
         
         if (buttonDownDashLeft == true)
@@ -233,6 +237,7 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsHorizontal = true;
             buttonDownDashLeft = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
 
         if (buttonDownDashUp == true)
@@ -243,7 +248,7 @@ public class PlayerController : MonoBehaviour
             dashIsUpward = true;
             buttonDownDashUp = false;
             dashedUpOnce = true;
-
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
 
         if (buttonDownDashDown == true)
@@ -253,6 +258,7 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsDownward = true;
             buttonDownDashDown = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
     }
 
