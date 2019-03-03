@@ -67,16 +67,16 @@ public class PlayerController : MonoBehaviour
         //Ground check. If the ground layer is touching the radius (which is an empty object placed under the player) then it's grounded.
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
-        //If the player presses the jump key AND they have jumps avaliable, they'll jump depending on the value of the jumpHeight variable. Plays jumping animation.
+        //If the player doesn't have 0 extra jumps, perofrm a mid-air jump. Plays mid-air jumping animation. Can't jump while dash is active.
         if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && isGrounded == false && dashIsActive == false)
         {
             rb.velocity = Vector2.up * jumpHeight;
             extraJumpCount--;
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsMidAirJumping", true);
-            //isJumping = true;
-            //Invoke("IsJumpingTurnOff", 0.05f);
+
         }
+        //Initial jump from the ground. Plays jumping animation. Can't jump while dash is active.
         else if (Input.GetButtonDown("Jump") && isGrounded == true && dashIsActive == false)
         {
             rb.velocity = Vector2.up * jumpHeight;
@@ -149,12 +149,19 @@ public class PlayerController : MonoBehaviour
                 dashIsActive = false;
                 dashIsHorizontal = false;
                 dashIsDownward = false;
-                dashIsUpward = false;
+                if (dashIsUpward == true)
+                {
+                    rb.velocity = Vector2.up * (dashPower / 2);
+                    dashIsUpward = false;
+                }
+
                 dashTimeElapsed = 0f;
                 trail.SetActive(false);
                 animator.SetBool("IsDashing", false);
                 animator.SetBool("IsDashingDown", false);
                 animator.SetBool("IsDashingUp", false);
+
+                
             }
         }
 
