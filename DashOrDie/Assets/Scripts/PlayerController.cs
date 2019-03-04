@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public int movementSpeed;
     private float horizontalInput;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     public int jumpHeight;
     public int extraJumpCount;
@@ -49,8 +49,12 @@ public class PlayerController : MonoBehaviour
 
     private bool facingRight = true;
 
+    private HealthScript HS;
+
     void Start()
     {
+        HS = GameObject.Find("Diamonds/Hitpoints").GetComponent<HealthScript>();
+
         //References RigidBody2D to variable rb
         rb = GetComponent<Rigidbody2D>();
 
@@ -212,7 +216,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         //Moves the player if they press the left or right arrow
-        if (dashIsActive == false)
+        if (dashIsActive == false && HS.Health != 0)
         {
             rb.velocity = new Vector2(horizontalInput * movementSpeed, rb.velocity.y);
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;

@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 670526768}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Laser
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1470,6 +1470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554380231}
+  - component: {fileID: 1554380232}
   m_Layer: 0
   m_Name: Diamonds/Hitpoints
   m_TagString: Untagged
@@ -1495,6 +1496,24 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1554380232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554380230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b9b149eb3c9aa44a773f7746b4193e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullDiamonds: {fileID: 492094680}
+  twoDiamonds: {fileID: 1678848268}
+  oneDiamond: {fileID: 414987525}
+  noDiamonds: {fileID: 137194313}
+  recovery: 0
+  Health: 3
 --- !u!1 &1617103984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1635,7 @@ PrefabInstance:
     - target: {fileID: 8066177281117675463, guid: a431487d1ec04944e8919bac4bb7a712,
         type: 3}
       propertyPath: m_TagString
-      value: Laser
+      value: Hazard
       objectReference: {fileID: 0}
     - target: {fileID: 8066177281117675462, guid: a431487d1ec04944e8919bac4bb7a712,
         type: 3}
@@ -1935,7 +1954,7 @@ GameObject:
   - component: {fileID: 1788816366}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Laser
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,6 +2570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
+  rb: {fileID: 0}
   jumpHeight: 7
   extraJumpCount: 1
   isJumping: 0
@@ -2645,6 +2665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687615518851716476, guid: 04307fe612fd1054fbf5802a5b3f7112,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hazard
       objectReference: {fileID: 0}
     - target: {fileID: 2687615518851716477, guid: 04307fe612fd1054fbf5802a5b3f7112,
         type: 3}
@@ -2773,7 +2798,7 @@ PrefabInstance:
     - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
         type: 3}
@@ -2833,6 +2858,46 @@ PrefabInstance:
     - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
         type: 3}
       propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Hurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c31cf2c69cadf4041979fc8e6afbebd3, type: 3}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3b11e2759af45740a64496f65047cc0, type: 3}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
