@@ -9,9 +9,7 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("Movement & Jump Settings:")]
     public int movementSpeed;
-    private float horizontalInput;
-
-    public Rigidbody2D rb;
+    public float horizontalInput;
 
     public int jumpHeight;
     public int extraJumpCount;
@@ -47,19 +45,38 @@ public class PlayerController : MonoBehaviour
 
     public GameObject trail;
 
-    private bool facingRight = true;
-
     private HealthScript HS;
+    private HazardScript HazS;
+
+    public float r, g, b, alpha;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
+    public SpriteRenderer sr;
+
+    public bool facingRight = true;
+
 
     void Start()
     {
         HS = GameObject.Find("Diamonds/Hitpoints").GetComponent<HealthScript>();
+        HazS = GameObject.FindWithTag("Hazard").GetComponent<HazardScript>();
 
         //References RigidBody2D to variable rb
         rb = GetComponent<Rigidbody2D>();
 
         //Sets extraJumpCountReset to the value of extraJumpCount so it can later be reset back to the original value.
         extraJumpCountReset = extraJumpCount;
+
+        //Gets the object's sprite renderer and sets it to sr.
+        sr = transform.GetComponent<SpriteRenderer>();
+
+        r = sr.color.r;
+        g = sr.color.g;
+        b = sr.color.b;
+        alpha = sr.color.a;
+
+        //sr.color = new Color(r, g, b, alpha); used to change the RGB and alpha.
     }
 
 
@@ -216,7 +233,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         //Moves the player if they press the left or right arrow
-        if (dashIsActive == false && HS.Health != 0)
+        if (dashIsActive == false && HS.Health != 0 && HazS.gettingKnockedback == false)
         {
             rb.velocity = new Vector2(horizontalInput * movementSpeed, rb.velocity.y);
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
