@@ -1382,7 +1382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72, y: -249.5}
+  m_AnchoredPosition: {x: -208, y: -249.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093581815
@@ -1405,9 +1405,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Press Shift + W, A, S, or D to dash.
+  m_text: '- Press Shift + WASD or Shift + Arrow keys to perform a dash. You can also
+    double jump.
 
-    While dashing, you are immune to damage.'
+    - While dashing, you are immune to damage. Try dashing through the lasers.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1473,13 +1474,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.863258, y: 0.19487953, z: -207.78188, w: -7.503628}
+  m_margin: {x: -94.19713, y: 0.19487953, z: -501.96313, w: -7.503628}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 77
+    characterCount: 162
     spriteCount: 0
-    spaceCount: 16
-    wordCount: 16
+    spaceCount: 31
+    wordCount: 30
     linkCount: 0
     lineCount: 2
     pageCount: 1
