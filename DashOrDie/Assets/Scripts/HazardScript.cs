@@ -74,7 +74,7 @@ public class HazardScript : MonoBehaviour
                 else
                 {
                     gettingKnockedback = true;
-                    PCScript.rb.velocity = new Vector2(0, 6);
+                    PCScript.rb.velocity = new Vector2(0.5f, 6);
                 }
 
             }
