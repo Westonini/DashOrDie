@@ -48,14 +48,11 @@ public class PlayerController : MonoBehaviour
     private HealthScript HS;
     private HazardScript HazS;
 
-    public float r, g, b, alpha;
-
     [HideInInspector]
     public Rigidbody2D rb;
     public SpriteRenderer sr;
-
+    public float r, g, b, alpha;
     public bool facingRight = true;
-
 
     void Start()
     {
