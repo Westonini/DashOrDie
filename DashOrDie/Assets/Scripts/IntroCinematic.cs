@@ -33,7 +33,7 @@ public class IntroCinematic : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        StartCoroutine("IntroScene");
+        StartCoroutine("IntroScene"); //Starts the intro cinematic when the scene starts.
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class IntroCinematic : MonoBehaviour
         
     }
 
-    IEnumerator IntroScene()
+    IEnumerator IntroScene() //Intro cinematic
     {
         animator.SetBool("IsFalling", true);
         yield return new WaitForSeconds(1f);
@@ -61,7 +61,7 @@ public class IntroCinematic : MonoBehaviour
         thoughtBubble.SetActive(false);
         thoughtBubbleDiamond.SetActive(false);
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         animator.SetFloat("Speed", 1);
         rb.velocity = Vector2.left * 2;
         yield return new WaitForSeconds(1.2f);
