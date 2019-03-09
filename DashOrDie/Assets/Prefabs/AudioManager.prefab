@@ -1,15 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6588001630292983016
+--- !u!1 &8866674854722920627
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6588001630292983016, guid: 1eea3e908f79dae4194a65d090192679,
+    type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8446256937467844726}
-  - component: {fileID: 498747111719739922}
+  - component: {fileID: 3448994570528258250}
+  - component: {fileID: 5551189825487902934}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,36 +18,74 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8446256937467844726
+--- !u!4 &3448994570528258250
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8446256937467844726, guid: 1eea3e908f79dae4194a65d090192679,
+    type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588001630292983016}
+  m_GameObject: {fileID: 8866674854722920627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8262284, y: 2.4475007, z: 0.19921875}
+  m_LocalPosition: {x: -0.34, y: 7.3, z: 0.19921875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &498747111719739922
+--- !u!114 &5551189825487902934
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
+    type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588001630292983016}
+  m_GameObject: {fileID: 8866674854722920627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06ba97edb0cc3fa42a98f9c0a4b5f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0.1
+  - name: Jump
+    clip: {fileID: 8300000, guid: 354ed641b0da85f4882c11070ec55b92, type: 3}
+    volume: 0.2
+    pitch: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: AirJump
+    clip: {fileID: 8300000, guid: 354ed641b0da85f4882c11070ec55b92, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 02fa4cf12667a9743bb2a0d74796c693, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: c31cf2c69cadf4041979fc8e6afbebd3, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: b3b11e2759af45740a64496f65047cc0, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pickup
+    clip: {fileID: 8300000, guid: 7c8fa48ca80115643b0d833581f0e91c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: a7d6111ba0282004dbe8e1f05ea906d9, type: 3}
+    volume: 0.75
+    pitch: 1
     loop: 0
     source: {fileID: 0}

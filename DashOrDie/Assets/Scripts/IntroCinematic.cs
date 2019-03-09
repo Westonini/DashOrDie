@@ -21,9 +21,13 @@ public class IntroCinematic : MonoBehaviour
     public GameObject thoughtBubble;
     public GameObject thoughtBubbleDiamond;
 
+    public GameObject escapeText;
+
     public GameObject trail;
 
     public GameObject props;
+
+    public AudioSource audioSource;
 
     [HideInInspector]
     public Rigidbody2D rb;
@@ -34,20 +38,43 @@ public class IntroCinematic : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         StartCoroutine("IntroScene"); //Starts the intro cinematic when the scene starts.
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Press escape to skip cutscene
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     IEnumerator IntroScene() //Intro cinematic
     {
+        blackMenu.SetActive(true);
+        blackMenuAnimator.SetBool("FadeInActive", true);
+        yield return new WaitForSeconds(1.5f);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        blackMenuAnimator.SetBool("FadeInActive", false);
+        blackMenu.SetActive(false);
         animator.SetBool("IsFalling", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.85f);
+        FindObjectOfType<AudioManagerScript>().Play("Landing");
+        yield return new WaitForSeconds(0.15f);
         animator.SetBool("IsFalling", false);
+
+        yield return new WaitForSeconds(0.75f);
+        rb.velocity = Vector2.up * 5;
+        FindObjectOfType<AudioManagerScript>().Play("AirJump");
         yield return new WaitForSeconds(0.5f);
+        rb.velocity = Vector2.up * 5;
+        FindObjectOfType<AudioManagerScript>().Play("AirJump");
+        yield return new WaitForSeconds(1f);
         thoughtBubbleDot1.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         thoughtBubbleDot2.SetActive(true);
@@ -80,6 +107,7 @@ public class IntroCinematic : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(0.15f);
         animator.SetBool("IsGrabbing", true);
+        FindObjectOfType<AudioManagerScript>().Play("Pickup");
         yield return new WaitForSeconds(0.2f);
         diamond.SetActive(false);
         yield return new WaitForSeconds(0.1f);
@@ -88,6 +116,7 @@ public class IntroCinematic : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         warningFlash.SetActive(true);
         yield return new WaitForSeconds(0.15f);
+        audioSource.Play();
         rb.velocity = Vector2.up * 7;
         FindObjectOfType<AudioManagerScript>().Play("AirJump");
         exclamationPoint.SetActive(true);
@@ -107,12 +136,10 @@ public class IntroCinematic : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         blackMenu.SetActive(true);
-        yield return new WaitForSeconds(1.4f);
-        props.SetActive(false);
-        blackMenuAnimator.SetBool("FadeInDone", true);
-        
-        yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene(1);
-        BB.SetActive(false);
+        blackMenuAnimator.SetBool("FadeOutActive", true);
+        yield return new WaitForSeconds(1.5f);
+        escapeText.SetActive(false);
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(2);
     }
 }
