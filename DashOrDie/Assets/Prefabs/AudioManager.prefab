@@ -3,8 +3,7 @@
 --- !u!1 &8866674854722920627
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6588001630292983016, guid: 1eea3e908f79dae4194a65d090192679,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -21,8 +20,7 @@ GameObject:
 --- !u!4 &3448994570528258250
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8446256937467844726, guid: 1eea3e908f79dae4194a65d090192679,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866674854722920627}
@@ -36,8 +34,7 @@ Transform:
 --- !u!114 &5551189825487902934
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 498747111719739922, guid: 1eea3e908f79dae4194a65d090192679,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866674854722920627}
@@ -67,7 +64,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hurt
     clip: {fileID: 8300000, guid: c31cf2c69cadf4041979fc8e6afbebd3, type: 3}
-    volume: 0.75
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -86,6 +83,12 @@ MonoBehaviour:
   - name: Landing
     clip: {fileID: 8300000, guid: a7d6111ba0282004dbe8e1f05ea906d9, type: 3}
     volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bubble
+    clip: {fileID: 8300000, guid: 0c2b4d6460d746947b92d8459b353977, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
