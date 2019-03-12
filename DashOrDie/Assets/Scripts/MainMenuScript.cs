@@ -5,13 +5,58 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public void StartGame()
+    public GameObject transition;
+    public GameObject FrozenMM;
+    public GameObject MM;
+
+    public Animator transitionanim;
+
+    void Start() //At the start of the scene, the scene is unclickable and the fade in transition happens.
     {
-        SceneManager.LoadScene(2);
+        transition.SetActive(true);
+        transitionanim.SetBool("FadeIn", true);
+        FrozenMM.SetActive(true);
+        MM.SetActive(false);
+        Invoke("EnableMM", 1.25f);
+    }
+    public void StartGame() //When the "Start Game" button is clicked, make the scene unclickable and do a fade out transition.
+    {
+        transition.SetActive(true);
+        transitionanim.SetBool("FadeOut", true);
+        FrozenMM.SetActive(true);
+        MM.SetActive(false);
+        Invoke("StartGame2", 2f);
     }
 
-    public void QuitGame()
+    public void QuitGame() //When the "Start Game" button is clicked, make the scene unclickable and do a fade out transition.
+    {
+        transition.SetActive(true);
+        transitionanim.SetBool("FadeOut", true);
+        FrozenMM.SetActive(true);
+        MM.SetActive(false);
+        Invoke("QuitGame2", 2f);
+    }
+
+    public void EnableMM() //Enables the main menu to be clickable.
+    {
+        transitionanim.SetBool("FadeIn", false);
+        transition.SetActive(false);
+        FrozenMM.SetActive(false);
+        MM.SetActive(true);
+    }
+
+    void StartGame2() //Loads the next scene
+    {
+        SceneManager.LoadScene(1);
+    }
+    void QuitGame2() //Quits the game
     {
         Application.Quit();
     }
+
+    public void ClickSound() //Plays a sound when the button is clicked.
+    {
+        FindObjectOfType<AudioManagerScript>().Play("ButtonClick");
+    }
+
 }

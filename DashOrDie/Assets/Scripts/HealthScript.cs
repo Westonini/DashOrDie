@@ -12,6 +12,9 @@ public class HealthScript : MonoBehaviour
     public GameObject oneDiamond;
     public GameObject noDiamonds;
 
+    public GameObject transition;
+    public Animator transitionAnim;
+
     public bool recovery;
     private float recoveryTime = 1.0f;
 
@@ -41,7 +44,7 @@ public class HealthScript : MonoBehaviour
             twoDiamonds.SetActive(false);
             oneDiamond.SetActive(true);
         }
-        else if (Health == 0) //When health is equal to 0, freeze the player and play a game over sound. Then reset the scene after 3 seconds.
+        else if (Health == 0) //When health is equal to 0, freeze the player and play a game over sound. Then do a fade out transition in 1.5 and reset the scene after 3 seconds.
         {           
             oneDiamond.SetActive(false);
             noDiamonds.SetActive(true);
@@ -57,6 +60,7 @@ public class HealthScript : MonoBehaviour
                 playedgameOverSound = true;
             }
 
+            Invoke("FadeOutTransition", 1.5f);
             Invoke("Restart", 3);
         }
 
@@ -72,8 +76,14 @@ public class HealthScript : MonoBehaviour
         }
     }
 
-    void Restart()
+    void Restart() //Restarts scene
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void FadeOutTransition() //Does a fade out transition
+    {
+        transition.SetActive(true);
+        transitionAnim.SetBool("FadeOut", true);
     }
 }
