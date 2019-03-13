@@ -39,6 +39,8 @@ public class MainMenuScript : MonoBehaviour
 
     public void EnableMM() //Enables the main menu to be clickable.
     {
+        FindObjectOfType<AudioManagerScript>().Play("MM_Music");
+
         transitionanim.SetBool("FadeIn", false);
         transition.SetActive(false);
         FrozenMM.SetActive(false);
@@ -47,10 +49,12 @@ public class MainMenuScript : MonoBehaviour
 
     void StartGame2() //Loads the next scene
     {
+        FindObjectOfType<AudioManagerScript>().Pause("MM_Music");
         SceneManager.LoadScene(1);
     }
     void QuitGame2() //Quits the game
     {
+        FindObjectOfType<AudioManagerScript>().Pause("MM_Music");
         Application.Quit();
     }
 

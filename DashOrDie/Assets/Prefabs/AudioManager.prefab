@@ -64,7 +64,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hurt
     clip: {fileID: 8300000, guid: c31cf2c69cadf4041979fc8e6afbebd3, type: 3}
-    volume: 0.6
+    volume: 0.35
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -97,4 +97,16 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: MM_Music
+    clip: {fileID: 8300000, guid: cbbb6e7a737d68e4180f20efe3da2a4b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: dd2e4950efcbe3342bcc8a28ad622ffa, type: 3}
+    volume: 0.08
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
