@@ -8,7 +8,6 @@ public class AudioManagerScript : MonoBehaviour
 
     public static AudioManagerScript instance; 
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance == null)

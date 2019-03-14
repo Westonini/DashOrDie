@@ -50,6 +50,7 @@ public class MainMenuScript : MonoBehaviour
     void StartGame2() //Loads the next scene
     {
         FindObjectOfType<AudioManagerScript>().Pause("MM_Music");
+        FindObjectOfType<AudioManagerScript>().Play("Music");
         SceneManager.LoadScene(1);
     }
     void QuitGame2() //Quits the game

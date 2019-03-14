@@ -66,9 +66,7 @@ public class IntroCinematic : MonoBehaviour
         yield return new WaitForSeconds(0.85f);
         FindObjectOfType<AudioManagerScript>().Play("Landing");
         yield return new WaitForSeconds(0.15f);
-        animator.SetBool("IsFalling", false);
-
-        FindObjectOfType<AudioManagerScript>().Play("Music");
+        animator.SetBool("IsFalling", false);     
 
         yield return new WaitForSeconds(0.75f);
         rb.velocity = Vector2.up * 5;
