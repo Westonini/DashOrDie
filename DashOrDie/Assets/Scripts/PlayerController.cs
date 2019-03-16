@@ -220,6 +220,15 @@ public class PlayerController : MonoBehaviour
             trail.SetActive(true);
         }
 
+        if (Input.GetButton("DownArrow") && isGrounded == false) //If the player holds the down key while mid-air, they fall faster.
+        {
+            rb.gravityScale = 3;
+        }
+        else
+        {
+            rb.gravityScale = 2;
+        }
+
 
         
     }

@@ -94,62 +94,62 @@ public class HealthScript : MonoBehaviour
 
     IEnumerator FadeOut() //Causes the alpha and y-scale of the player to rapidly decrease.
     {
-        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.90f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.90f);               //Decreases alpha
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);    //Decreases y-scale
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36);         //Rotates 36 degrees
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.80f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*2);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*2);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.70f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*3);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*3);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.60f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*4);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*4);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.50f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*5);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*5);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.40f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*6);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*6);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.30f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*7);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*7);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.20f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*8);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*8);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.10f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*9);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*9);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0f);
-        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*10);
+        //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36*10);
     }
 }
