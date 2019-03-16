@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: eff66721b27cadb44bd917ec8283e69b
+guid: cbb57b214c0137c40bc4ab6d5bb58f62
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PropsSpriteSheet_0
-    21300002: PropsSpriteSheet_1
-    21300004: PropsSpriteSheet_2
+    21300000: Poof_0
+    21300002: Poof_1
+    21300004: Poof_2
+    21300006: Poof_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,61 +88,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PropsSpriteSheet_0
+      name: Poof_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 62
-        width: 20
-        height: 12
+        x: 0
+        y: 2
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a244668c1d6831042bfbebfff781828c
+      spriteID: 99faaa87cebffc243b15989c0599cf0c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropsSpriteSheet_1
+      name: Poof_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 52
-        width: 14
-        height: 19
+        x: 20
+        y: 21
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 194eb85a842599b49bbcfb776b5aa6f9
+      spriteID: b1d181491a577f4499457edd44272b42
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropsSpriteSheet_2
+      name: Poof_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e33d27960609444f85fcf1d5ee4fcc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poof_3
       rect:
         serializedVersion: 2
         x: 5
-        y: 46
-        width: 14
-        height: 14
+        y: 24
+        width: 3
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4b7b30942067c84cbfbff7c9bef7d11
+      spriteID: 53d5c146d618e1542a29edd843d86102
       vertices: []
       indices: 
       edges: []
@@ -149,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fd97c28e2793ef341bf248ff5627b63b
+    spriteID: e560227155da2104a90de9c967d8e49e
     vertices: []
     indices: 
     edges: []

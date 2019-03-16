@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class HealthScript : MonoBehaviour
 {
     private PlayerController PC;
+    private GameObject Player;
 
     public GameObject fullDiamonds;
     public GameObject twoDiamonds;
@@ -14,6 +15,8 @@ public class HealthScript : MonoBehaviour
 
     public GameObject transition;
     public Animator transitionAnim;
+
+    public Animator playerAnim;
 
     public bool recovery;
     private float recoveryTime = 1.0f;
@@ -28,6 +31,7 @@ public class HealthScript : MonoBehaviour
     void Start()
     {
         PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -55,6 +59,7 @@ public class HealthScript : MonoBehaviour
             {
                 FindObjectOfType<AudioManagerScript>().Play("GameOver");
                 PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                StartCoroutine(FadeOut());
                 PC.GetComponent<Animator>().enabled = false;
                 PC.GetComponent<PlayerController>().enabled = false;
                 playedgameOverSound = true;
@@ -85,5 +90,66 @@ public class HealthScript : MonoBehaviour
     {
         transition.SetActive(true);
         transitionAnim.SetBool("FadeOut", true);
+    }
+
+    IEnumerator FadeOut() //Causes the alpha and y-scale of the player to rapidly decrease.
+    {
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.90f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.80f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*2);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.70f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*3);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.60f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*4);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.50f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*5);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.40f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*6);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.30f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*7);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.20f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*8);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.10f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*9);
+
+        yield return new WaitForSeconds(0.05f);
+
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0f);
+        Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
+        //Player.transform.rotation = Quaternion.Euler(0, 0, 36*10);
     }
 }

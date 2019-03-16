@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
         b = sr.color.b;
         alpha = sr.color.a;
 
-        //sr.color = new Color(r, g, b, alpha); used to change the RGB and alpha.
     }
 
 
