@@ -8,10 +8,13 @@ public class HealthScript : MonoBehaviour
     private PlayerController PC;
     private GameObject Player;
 
-    public GameObject fullDiamonds;
-    public GameObject twoDiamonds;
-    public GameObject oneDiamond;
-    public GameObject noDiamonds;
+    public GameObject firstDiamond;
+    public GameObject secondDiamond;
+    public GameObject thirdDiamond;
+    public Animator firstDiamondAnim;
+    public Animator secondDiamondAnim;
+    public Animator thirdDiamondAnim;
+
 
     public GameObject transition;
     public Animator transitionAnim;
@@ -40,18 +43,18 @@ public class HealthScript : MonoBehaviour
         //Changes the health state image per health state.
         if (Health == 2)
         {
-            fullDiamonds.SetActive(false);
-            twoDiamonds.SetActive(true);
+            firstDiamondAnim.SetBool("1stDiamondLost", true);
+            Invoke("LoseFirstDiamond", 2);
         }
         else if (Health == 1)
         {
-            twoDiamonds.SetActive(false);
-            oneDiamond.SetActive(true);
+            secondDiamondAnim.SetBool("2ndDiamondLost", true);
+            Invoke("LoseSecondDiamond", 2);
         }
         else if (Health == 0) //When health is equal to 0, freeze the player and play a game over sound. Then do a fade out transition in 1.5 and reset the scene after 3 seconds.
-        {           
-            oneDiamond.SetActive(false);
-            noDiamonds.SetActive(true);
+        {
+            thirdDiamondAnim.SetBool("3rdDiamondLost", true);
+            Invoke("LoseThirdDiamond", 2);
 
             gameOver = true;
 
@@ -90,6 +93,19 @@ public class HealthScript : MonoBehaviour
     {
         transition.SetActive(true);
         transitionAnim.SetBool("FadeOut", true);
+    }
+
+    void LoseFirstDiamond()
+    {
+        firstDiamond.SetActive(false);
+    }
+    void LoseSecondDiamond()
+    {
+        secondDiamond.SetActive(false);
+    }
+    void LoseThirdDiamond()
+    {
+        thirdDiamond.SetActive(false);
     }
 
     IEnumerator FadeOut() //Causes the alpha and y-scale of the player to rapidly decrease.
