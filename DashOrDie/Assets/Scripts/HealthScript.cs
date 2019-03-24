@@ -8,6 +8,11 @@ public class HealthScript : MonoBehaviour
     private PlayerController PC;
     private GameObject Player;
 
+    private GameObject instantiatedDiamondLocation1;
+    private GameObject instantiatedDiamondLocation2;
+    private GameObject instantiatedDiamondLocation3;
+    public GameObject diamond;
+
     public GameObject firstDiamond;
     public GameObject secondDiamond;
     public GameObject thirdDiamond;
@@ -21,13 +26,13 @@ public class HealthScript : MonoBehaviour
 
     public Animator playerAnim;
 
+    public bool playerHurt = false;
     public bool recovery;
     private float recoveryTime = 1.0f;
 
     private bool gameOver = false;
     private bool playedgameOverSound = false;
 
-    [HideInInspector]
     public int Health = 3;
 
     // Start is called before the first frame update
@@ -35,42 +40,64 @@ public class HealthScript : MonoBehaviour
     {
         PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         Player = GameObject.FindWithTag("Player");
+
+        instantiatedDiamondLocation1 = GameObject.Find("DiamondLocation1"); //These three locations are for where the diamonds get instantiated when the player gets hit.
+        instantiatedDiamondLocation2 = GameObject.Find("DiamondLocation2");
+        instantiatedDiamondLocation3 = GameObject.Find("DiamondLocation3");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Changes the health state image per health state.
-        if (Health == 2)
+        if (playerHurt == true) //If player gets hurt make them immune to damage temporarily, instantiate diamonds, make the player's transparency blink, play a hurt sound, and switch the health state image.
         {
-            firstDiamondAnim.SetBool("1stDiamondLost", true);
-            Invoke("LoseFirstDiamond", 2);
-        }
-        else if (Health == 1)
-        {
-            secondDiamondAnim.SetBool("2ndDiamondLost", true);
-            Invoke("LoseSecondDiamond", 2);
-        }
-        else if (Health == 0) //When health is equal to 0, freeze the player and play a game over sound. Then do a fade out transition in 1.5 and reset the scene after 3 seconds.
-        {
-            thirdDiamondAnim.SetBool("3rdDiamondLost", true);
-            Invoke("LoseThirdDiamond", 2);
+            recovery = true;
+            InstantiateDiamonds();
+            FindObjectOfType<AudioManagerScript>().Play("Hurt");
 
-            gameOver = true;
-
-            if (gameOver == true && playedgameOverSound == false)
+            //Changes the health state image per health state.
+            if (Health == 3)
             {
-                FindObjectOfType<AudioManagerScript>().Play("GameOver");
-                PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                StartCoroutine(FadeOut());
-                PC.GetComponent<Animator>().enabled = false;
-                PC.GetComponent<PlayerController>().enabled = false;
-                playedgameOverSound = true;
+                StartCoroutine(Blink());
+                firstDiamondAnim.SetBool("1stDiamondLost", true);
+                Invoke("LoseFirstDiamond", 2);
+                playerHurt = false;
+            }
+            else if (Health == 2)
+            {
+                StartCoroutine(Blink());
+                secondDiamondAnim.SetBool("2ndDiamondLost", true);
+                Invoke("LoseSecondDiamond", 2);
+                playerHurt = false;
+            }
+            else if (Health == 1) //When health is equal to 1, freeze the player and play a game over sound. Then do a fade out transition in 1.5 and reset the scene after 3 seconds.
+            {
+                StopCoroutine(Blink());
+                thirdDiamondAnim.SetBool("3rdDiamondLost", true);
+                Invoke("LoseThirdDiamond", 2);
+
+                gameOver = true;
+
+                if (gameOver == true && playedgameOverSound == false)
+                {
+                    FindObjectOfType<AudioManagerScript>().Play("GameOver");
+                    PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    StartCoroutine(FadeOut());
+                    PC.GetComponent<Animator>().enabled = false;
+                    PC.GetComponent<PlayerController>().enabled = false;
+                    playedgameOverSound = true;                  
+                }
+
+                Invoke("FadeOutTransition", 1.5f);
+                Invoke("Restart", 3);
+
+                playerHurt = false;
             }
 
-            Invoke("FadeOutTransition", 1.5f);
-            Invoke("Restart", 3);
+            Health -= 1; //Removes 1 from the player's Health whenever the player is hurt.
+
         }
+
 
         if (recovery == true) //Player is temporarily immune to damage once they take damage.
         {
@@ -82,11 +109,12 @@ public class HealthScript : MonoBehaviour
                 recoveryTime = 1.0f;
             }
         }
+
     }
 
     void Restart() //Restarts scene
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);      
     }
 
     void FadeOutTransition() //Does a fade out transition
@@ -118,54 +146,84 @@ public class HealthScript : MonoBehaviour
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.80f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*2);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 2);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.70f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*3);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 3);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.60f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*4);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 4);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.50f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*5);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 5);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.40f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*6);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 6);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.30f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*7);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 7);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.20f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*8);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 8);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.10f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*9);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 9);
 
         yield return new WaitForSeconds(0.05f);
 
         PC.sr.color = new Color(PC.r, PC.g, PC.b, 0f);
         //Player.transform.localScale -= new Vector3(0, 0.5f, 0.5f);
-        Player.transform.rotation = Quaternion.Euler(0, 0, 36*10);
+        Player.transform.rotation = Quaternion.Euler(0, 0, 36 * 10);
+
+        PC.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void InstantiateDiamonds() //Instantiates diamond objects and then destroys them after 3 seconds.
+    {
+        GameObject clone = Instantiate(diamond, instantiatedDiamondLocation1.transform.position, instantiatedDiamondLocation1.transform.rotation);
+        clone.GetComponent<Rigidbody2D>().AddForce(new Vector2(60f, 170f));
+        Destroy(clone, 3f);
+        GameObject clone2 = Instantiate(diamond, instantiatedDiamondLocation2.transform.position, instantiatedDiamondLocation2.transform.rotation);
+        clone2.GetComponent<Rigidbody2D>().AddForce(new Vector2(-50f, 150f));
+        Destroy(clone2, 3f);
+        GameObject clone3 = Instantiate(diamond, instantiatedDiamondLocation3.transform.position, instantiatedDiamondLocation3.transform.rotation);
+        clone3.GetComponent<Rigidbody2D>().AddForce(new Vector2(20f, 190f));
+        Destroy(clone3, 3f);
+    }
+
+    IEnumerator Blink() //Causes the alpha of the player to rapidly change from 0.75 to 0.5, which creates a blinking effect.
+    {
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.75f);
+        yield return new WaitForSeconds(0.2f);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.75f);
+        yield return new WaitForSeconds(0.2f);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 0.75f);
+        yield return new WaitForSeconds(0.2f);
+        PC.sr.color = new Color(PC.r, PC.g, PC.b, 1);
     }
 }

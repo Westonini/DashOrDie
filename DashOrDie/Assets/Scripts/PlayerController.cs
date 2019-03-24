@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,9 +28,17 @@ public class PlayerController : MonoBehaviour
     private bool buttonDownDashLeft;
     private bool buttonDownDashUp;
     private bool buttonDownDashDown;
+    private bool buttonDownDashUpRight;
+    private bool buttonDownDashUpLeft;
+    private bool buttonDownDashDownRight;
+    private bool buttonDownDashDownLeft;
     private bool dashIsHorizontal;
     private bool dashIsDownward;
     private bool dashIsUpward;
+    private bool dashIsDiagonalUpRight;
+    private bool dashIsDiagonalUpLeft;
+    private bool dashIsDiagonalDownRight;
+    private bool dashIsDiagonalDownLeft;
     private bool dashedUpOnce;
 
     [Space]
@@ -56,8 +65,30 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        HS = GameObject.Find("Diamonds/Hitpoints").GetComponent<HealthScript>();
-        HazS = GameObject.FindWithTag("Hazard").GetComponent<HazardScript>();
+        // Find HealthScript from the "Diamonds/Hitpoints" GameObject. If not found, return null.
+        try
+        {
+            HS = GameObject.Find("Diamonds/Hitpoints").GetComponent<HealthScript>();
+        }
+
+        catch
+        {
+            Debug.Log("HealthScript not found.");
+            HS = null;
+        }
+        
+        // Find HazardScript from a GameObject tagged "Hazard". If not found, return null.
+        try
+        {
+            HazS = GameObject.FindWithTag("Hazard").GetComponent<HazardScript>();
+        }
+        catch
+        {
+            Debug.Log("HazardScript not found.");
+            HazS = null;
+        }
+
+
 
         //References RigidBody2D to variable rb
         rb = GetComponent<Rigidbody2D>();
@@ -164,16 +195,50 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsDashingUp", true);
             }
             
+            if (isGrounded == true && (dashIsDiagonalDownRight == true || dashIsDiagonalDownLeft == true))
+            {
+                dashIsDiagonalDownRight = false;
+                dashIsDiagonalDownLeft = false;
+                rb.velocity = new Vector2(0, 0);
+                dashIsActive = false;
+                trail.SetActive(false);
+                dashTimeElapsed = 0f;
+            }
 
             if (dashTimeElapsed >= dashDuration)
             {
                 dashIsActive = false;
                 dashIsHorizontal = false;
-                dashIsDownward = false;
+
                 if (dashIsUpward == true)
                 {
                     rb.velocity = Vector2.up * (dashPower / 2);
                     dashIsUpward = false;
+                }
+                if (dashIsDownward == true)
+                {
+                    rb.velocity = Vector2.down * (dashPower / 3);
+                    dashIsDownward = false;
+                }
+                if (dashIsDiagonalUpRight == true)
+                {
+                    rb.velocity = new Vector2(4, 4);
+                    dashIsDiagonalUpRight = false;
+                }
+                if (dashIsDiagonalUpLeft == true)
+                {
+                    rb.velocity = new Vector2(-4, 4);
+                    dashIsDiagonalUpLeft = false;
+                }
+                if (dashIsDiagonalDownRight == true)
+                {
+                    rb.velocity = new Vector2(4, -4);
+                    dashIsDiagonalDownRight = false;
+                }
+                if (dashIsDiagonalDownLeft == true)
+                {
+                    rb.velocity = new Vector2(-4, -4);
+                    dashIsDiagonalDownLeft = false;
                 }
 
                 dashTimeElapsed = 0f;
@@ -198,27 +263,48 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-       //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
-        if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 && dashIsActive == false && dashIsOnCooldown == false)
+        //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
+        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false) //Dashes Up-Right
+        {
+            buttonDownDashUpRight = true;
+            trail.SetActive(true);
+        }
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false) //Dashes Up-Left
+        {
+            buttonDownDashUpLeft = true;
+            trail.SetActive(true);
+        }
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Right
+        {
+            buttonDownDashDownRight = true;
+            trail.SetActive(true);
+        }
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Left
+        {
+            buttonDownDashDownLeft = true;
+            trail.SetActive(true);
+        }
+        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false) //Dashes Right
         {
             buttonDownDashRight = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsActive == false && dashIsOnCooldown == false)
+        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false) //Dashes Left
         {
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-       else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsActive == false && dashIsOnCooldown == false && dashedUpOnce == false)
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && dashedUpOnce == false) //Dashes Up
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsActive == false && dashIsOnCooldown == false && isGrounded == false)
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsOnCooldown == false && isGrounded == false) //Dashes Down
         {
             buttonDownDashDown = true;
             trail.SetActive(true);
         }
+
 
         if (Input.GetButton("DownArrow") && isGrounded == false) //If the player holds the down key while mid-air, they fall faster.
         {
@@ -238,7 +324,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         //Moves the player if they press the left or right arrow
-        if (dashIsActive == false && HS.Health != 0 && HazS.gettingKnockedback == false)
+        if (dashIsActive == false && (HS == null || HS.Health != 0) && (HazS == null || HazS.gettingKnockedback == false))
         {
             rb.velocity = new Vector2(horizontalInput * movementSpeed, rb.velocity.y);
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -284,6 +370,42 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsDownward = true;
             buttonDownDashDown = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
+        }
+
+        if (buttonDownDashUpRight == true)
+        {
+            rb.velocity = new Vector2(dashPower / 1.25f, dashPower / 1.25f);
+            dashIsActive = true;
+            dashIsDiagonalUpRight = true;
+            buttonDownDashUpRight = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
+        }
+
+        if (buttonDownDashUpLeft == true)
+        {
+            rb.velocity = new Vector2(-dashPower / 1.25f, dashPower / 1.25f);
+            dashIsActive = true;
+            dashIsDiagonalUpLeft = true;
+            buttonDownDashUpLeft = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
+        }
+
+        if (buttonDownDashDownRight == true)
+        {
+            rb.velocity = new Vector2(dashPower / 1.25f, -dashPower / 1.25f);
+            dashIsActive = true;
+            dashIsDiagonalDownRight = true;
+            buttonDownDashDownRight = false;
+            FindObjectOfType<AudioManagerScript>().Play("Dash");
+        }
+
+        if (buttonDownDashDownLeft == true)
+        {
+            rb.velocity = new Vector2(-dashPower / 1.25f, -dashPower / 1.25f);
+            dashIsActive = true;
+            dashIsDiagonalDownLeft = true;
+            buttonDownDashDownLeft = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
     }

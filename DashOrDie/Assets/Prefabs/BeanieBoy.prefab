@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8625546742496246426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 2.19, z: 9.852539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.65, y: 0.27, z: 9.852539}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 8625546742486492447}
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.07, y: 0.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -288,12 +288,12 @@ MonoBehaviour:
     m_Bits: 256
   animator: {fileID: 8625546742496246429}
   trail: {fileID: 8625546742726518702}
+  rb: {fileID: 0}
+  sr: {fileID: 0}
   r: 0
   g: 0
   b: 0
   alpha: 0
-  rb: {fileID: 0}
-  sr: {fileID: 0}
   facingRight: 1
 --- !u!50 &8625546742496246400
 Rigidbody2D:
@@ -329,8 +329,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0050180675, y: 0.00021970272}
-  m_Size: {x: 0.107630394, y: 0.21993212}
+  m_Offset: {x: 0.0050180675, y: -0.0045476556}
+  m_Size: {x: 0.107630394, y: 0.2095692}
   m_Direction: 0
 --- !u!1 &8625546742726518702
 GameObject:
