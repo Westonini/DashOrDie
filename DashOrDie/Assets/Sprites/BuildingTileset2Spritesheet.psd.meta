@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: fefe97017f173054c9eafe03370df7bc
+guid: fe40dd52b3b1193478e04e41a4ca6f06
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BuildingTileset2Spritesheet_0
-    21300002: BuildingTileset2Spritesheet_1
-    21300004: BuildingTileset2Spritesheet_2
-    21300006: BuildingTileset2Spritesheet_3
-    21300008: BuildingTileset2Spritesheet_4
-    21300010: BuildingTileset2Spritesheet_5
+    21300000: BuildingTileset2Spritesheet 1_0
+    21300002: BuildingTileset2Spritesheet 1_1
+    21300004: BuildingTileset2Spritesheet 1_2
+    21300006: BuildingTileset2Spritesheet 1_3
+    21300008: BuildingTileset2Spritesheet 1_4
+    21300010: BuildingTileset2Spritesheet 1_5
+    21300012: BuildingTileset2Spritesheet 1_6
+    21300014: BuildingTileset2Spritesheet 1_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -90,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_0
+      name: BuildingTileset2Spritesheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -104,13 +106,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b0d47a5e013a7a429028dd47ea9730b
+      spriteID: 803e4d0f455a9cb47962115fec8d095c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_1
+      name: BuildingTileset2Spritesheet 1_1
       rect:
         serializedVersion: 2
         x: 36
@@ -124,13 +126,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8bce3c6e76e1674eb80a2f9331d6a6f
+      spriteID: 5490cef4b0b2d7e4fb288b48fbbedb61
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_2
+      name: BuildingTileset2Spritesheet 1_2
       rect:
         serializedVersion: 2
         x: 72
@@ -144,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23bd69863803af447a9f5cff705a42d4
+      spriteID: 2537f500f5fca2d42bc87fe27db578ad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_3
+      name: BuildingTileset2Spritesheet 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -164,13 +166,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de01a6363702dd9449fc8ee37f12acd0
+      spriteID: 429b2c5a8f8676f4ab4c692ec2115fad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_4
+      name: BuildingTileset2Spritesheet 1_4
       rect:
         serializedVersion: 2
         x: 36
@@ -184,13 +186,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f453745fc473b34c8954a9caaf08c5d
+      spriteID: e5ba5ca831f350c429ed5ca026eb4d87
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingTileset2Spritesheet_5
+      name: BuildingTileset2Spritesheet 1_5
       rect:
         serializedVersion: 2
         x: 72
@@ -204,7 +206,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e95a28bcc29f78242a9ebc15f20ea03c
+      spriteID: 593a1ca28b954434dadd0d3b71fce735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingTileset2Spritesheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 15
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0279a8ef1576242a728e40e88f2422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingTileset2Spritesheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 15
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43d54691d7a912458655fd8e192430a
       vertices: []
       indices: 
       edges: []
@@ -212,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ff1145906f01f1e40a39a55adc210724
+    spriteID: c1763807b63a88e44b0cf19dbd7c6eb2
     vertices: []
     indices: 
     edges: []

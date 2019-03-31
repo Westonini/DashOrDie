@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool dashIsDiagonalUpLeft;
     private bool dashIsDiagonalDownRight;
     private bool dashIsDiagonalDownLeft;
-    private bool dashedUpOnce;
+    //private bool dashedUpOnce;
 
     [Space]
     [Header("Ground Check Settings:")]
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public GameObject trail;
+    public GameObject trail2;
 
     private HealthScript HS;
     private HazardScript HazS;
@@ -87,8 +88,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("HazardScript not found.");
             HazS = null;
         }
-
-
 
         //References RigidBody2D to variable rb
         rb = GetComponent<Rigidbody2D>();
@@ -149,7 +148,7 @@ public class PlayerController : MonoBehaviour
             extraJumpCount = extraJumpCountReset;
             animator.SetBool("IsFalling", false);
 
-            dashedUpOnce = false;
+            //dashedUpOnce = false;
             animator.SetBool("IsDashingUp", false);
         }
         if (isGrounded == true && isJumping == false)
@@ -182,7 +181,7 @@ public class PlayerController : MonoBehaviour
             dashIsOnCooldown = true;
             dashTimeElapsed += Time.deltaTime;
 
-            if (dashIsHorizontal == true)
+            if (dashIsHorizontal == true || dashIsDiagonalUpRight == true || dashIsDiagonalDownLeft || dashIsDiagonalUpLeft == true || dashIsDiagonalDownRight == true)
             {
                 animator.SetBool("IsDashing", true);
             }
@@ -194,6 +193,15 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("IsDashingUp", true);
             }
+            //else if (dashIsDiagonalUpRight == true || dashIsDiagonalDownLeft)
+            //{
+            //    animator.SetBool("IsDashingUpRightORDownLeft", true);
+            //}
+            //else if (dashIsDiagonalUpLeft == true || dashIsDiagonalDownRight == true)
+            //{
+            //    animator.SetBool("IsDashingUpLeftORDownRight", true);
+            //}
+            
             
             if (isGrounded == true && (dashIsDiagonalDownRight == true || dashIsDiagonalDownLeft == true))
             {
@@ -201,8 +209,11 @@ public class PlayerController : MonoBehaviour
                 dashIsDiagonalDownLeft = false;
                 rb.velocity = new Vector2(0, 0);
                 dashIsActive = false;
-                trail.SetActive(false);
+                trail2.SetActive(false);
                 dashTimeElapsed = 0f;
+                animator.SetBool("IsDashing", false);
+                //animator.SetBool("IsDashingUpRightORDownLeft", false);
+                //animator.SetBool("IsDashingUpLeftORDownRight", false);
             }
 
             if (dashTimeElapsed >= dashDuration)
@@ -222,32 +233,34 @@ public class PlayerController : MonoBehaviour
                 }
                 if (dashIsDiagonalUpRight == true)
                 {
-                    rb.velocity = new Vector2(4, 4);
+                    rb.velocity = new Vector2(2, 2);
                     dashIsDiagonalUpRight = false;
                 }
                 if (dashIsDiagonalUpLeft == true)
                 {
-                    rb.velocity = new Vector2(-4, 4);
+                    rb.velocity = new Vector2(-2, 2);
                     dashIsDiagonalUpLeft = false;
                 }
                 if (dashIsDiagonalDownRight == true)
                 {
-                    rb.velocity = new Vector2(4, -4);
+                    rb.velocity = new Vector2(2, -2);
                     dashIsDiagonalDownRight = false;
                 }
                 if (dashIsDiagonalDownLeft == true)
                 {
-                    rb.velocity = new Vector2(-4, -4);
+                    rb.velocity = new Vector2(-2, -2);
                     dashIsDiagonalDownLeft = false;
                 }
 
                 dashTimeElapsed = 0f;
                 trail.SetActive(false);
+                trail2.SetActive(false);
                 animator.SetBool("IsDashing", false);
                 animator.SetBool("IsDashingDown", false);
                 animator.SetBool("IsDashingUp", false);
+                animator.SetBool("IsDashingUpRightORDownLeft", false);
+                animator.SetBool("IsDashingUpLeftORDownRight", false);
 
-                
             }
         }
 
@@ -267,22 +280,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false) //Dashes Up-Right
         {
             buttonDownDashUpRight = true;
-            trail.SetActive(true);
+            trail2.SetActive(true);
         }
         else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false) //Dashes Up-Left
         {
             buttonDownDashUpLeft = true;
-            trail.SetActive(true);
+            trail2.SetActive(true);
         }
         else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Right
         {
             buttonDownDashDownRight = true;
-            trail.SetActive(true);
+            trail2.SetActive(true);
         }
         else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Left
         {
             buttonDownDashDownLeft = true;
-            trail.SetActive(true);
+            trail2.SetActive(true);
         }
         else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false) //Dashes Right
         {
@@ -294,7 +307,7 @@ public class PlayerController : MonoBehaviour
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && dashedUpOnce == false) //Dashes Up
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false) // && dashedUpOnce == false) //Dashes Up
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
@@ -321,7 +334,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //Sets horizontalInput to horizontal movement, or left and right movement
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (dashIsActive == false)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+        }
+
 
         //Moves the player if they press the left or right arrow
         if (dashIsActive == false && (HS == null || HS.Health != 0) && (HazS == null || HazS.gettingKnockedback == false))
@@ -359,7 +376,7 @@ public class PlayerController : MonoBehaviour
             dashIsActive = true;
             dashIsUpward = true;
             buttonDownDashUp = false;
-            dashedUpOnce = true;
+            //dashedUpOnce = true;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
         }
 
@@ -375,7 +392,7 @@ public class PlayerController : MonoBehaviour
 
         if (buttonDownDashUpRight == true)
         {
-            rb.velocity = new Vector2(dashPower / 1.25f, dashPower / 1.25f);
+            rb.velocity = new Vector2(dashPower / 1.2f, dashPower / 1.2f);
             dashIsActive = true;
             dashIsDiagonalUpRight = true;
             buttonDownDashUpRight = false;
@@ -384,7 +401,7 @@ public class PlayerController : MonoBehaviour
 
         if (buttonDownDashUpLeft == true)
         {
-            rb.velocity = new Vector2(-dashPower / 1.25f, dashPower / 1.25f);
+            rb.velocity = new Vector2(-dashPower / 1.2f, dashPower / 1.2f);
             dashIsActive = true;
             dashIsDiagonalUpLeft = true;
             buttonDownDashUpLeft = false;
@@ -393,7 +410,7 @@ public class PlayerController : MonoBehaviour
 
         if (buttonDownDashDownRight == true)
         {
-            rb.velocity = new Vector2(dashPower / 1.25f, -dashPower / 1.25f);
+            rb.velocity = new Vector2(dashPower / 1.2f, -dashPower / 1.2f);
             dashIsActive = true;
             dashIsDiagonalDownRight = true;
             buttonDownDashDownRight = false;
@@ -402,7 +419,7 @@ public class PlayerController : MonoBehaviour
 
         if (buttonDownDashDownLeft == true)
         {
-            rb.velocity = new Vector2(-dashPower / 1.25f, -dashPower / 1.25f);
+            rb.velocity = new Vector2(-dashPower / 1.2f, -dashPower / 1.2f);
             dashIsActive = true;
             dashIsDiagonalDownLeft = true;
             buttonDownDashDownLeft = false;
@@ -412,7 +429,7 @@ public class PlayerController : MonoBehaviour
 
     void Flip()
     {
-        //Flip function used if the player is looking left. Flips the character's sprite.
+        //Flip function used if the player looks the other direction.
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;

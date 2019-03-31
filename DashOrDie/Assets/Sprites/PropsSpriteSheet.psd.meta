@@ -5,6 +5,7 @@ TextureImporter:
     21300000: PropsSpriteSheet_0
     21300002: PropsSpriteSheet_1
     21300004: PropsSpriteSheet_2
+    21300006: PropsSpriteSheet_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -101,7 +102,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a244668c1d6831042bfbebfff781828c
+      spriteID: 9a84d551b30e4bc44b43343f76ed2452
       vertices: []
       indices: 
       edges: []
@@ -121,7 +122,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 194eb85a842599b49bbcfb776b5aa6f9
+      spriteID: a2c1db6d50e1f434b9f65ab0ccba9818
       vertices: []
       indices: 
       edges: []
@@ -141,7 +142,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4b7b30942067c84cbfbff7c9bef7d11
+      spriteID: b8f0fee0e47219a48b47bb3434f0594a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropsSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8665c9ce3c92c5e46a6ccdcf7200baee
       vertices: []
       indices: 
       edges: []
