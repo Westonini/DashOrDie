@@ -42,11 +42,14 @@ public class PlayerController : MonoBehaviour
     //private bool dashedUpOnce;
 
     [Space]
-    [Header("Ground Check Settings:")]
-    public bool isGrounded;
-    public Transform groundCheck;
-    public float checkRadius;
+    [Header("Ground/Wall/Ceiling Check Settings:")]
+    public bool isGrounded = false;
+    public Transform topLeftGroundCheck;
+    public Transform bottomRightGroundCheck;
     public LayerMask groundLayer;
+
+    public Transform wallCheck;
+    public bool isNextToWall = false;
 
     [Space]
     [Header("Other:")]
@@ -109,10 +112,32 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //If the player moves, the walk animation plays
-        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-       
-        //Ground check. If the ground layer is touching the radius (which is an empty object placed under the player) then it's grounded.
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        if (isNextToWall == false)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        }
+        else if (isNextToWall == true && isGrounded == true) //If the player is standing next to a wall, don't play walking animation.
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+
+        //Check if player is next to a wall by using a raycast
+        RaycastHit2D wallHitInfo = Physics2D.Raycast(wallCheck.position, wallCheck.right, 0.01f);
+
+        if (wallHitInfo)
+        {
+            if (wallHitInfo.transform.tag == "Building")
+            {
+                isNextToWall = true;
+            }
+        }
+        else
+        {
+            isNextToWall = false;
+        }
+
+        //Ground check. If the ground layer is touching the area (which is two empty objects placed under the player) then it's grounded.
+        isGrounded = Physics2D.OverlapArea(topLeftGroundCheck.position, bottomRightGroundCheck.position, groundLayer); 
 
         //If the player doesn't have 0 extra jumps, perofrm a mid-air jump. Plays mid-air jumping animation. Can't jump while dash is active.
         if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && isGrounded == false && dashIsActive == false)
@@ -128,10 +153,9 @@ public class PlayerController : MonoBehaviour
         //Initial jump from the ground. Plays jumping animation. Can't jump while dash is active.
         else if (Input.GetButtonDown("Jump") && isGrounded == true && dashIsActive == false)
         {
+            animator.SetBool("IsJumping", false); //To reset the jump animation in case of animation bug.
             rb.velocity = Vector2.up * jumpHeight;
-            animator.SetBool("IsJumping", true);
-            isJumping = true;
-            Invoke("IsJumpingTurnOff", 0.05f);
+            Invoke("IsJumping", 0.02f);
 
             FindObjectOfType<AudioManagerScript>().Play("Jump");
         }
@@ -205,15 +229,11 @@ public class PlayerController : MonoBehaviour
             
             if (isGrounded == true && (dashIsDiagonalDownRight == true || dashIsDiagonalDownLeft == true))
             {
-                dashIsDiagonalDownRight = false;
-                dashIsDiagonalDownLeft = false;
-                rb.velocity = new Vector2(0, 0);
-                dashIsActive = false;
-                trail2.SetActive(false);
-                dashTimeElapsed = 0f;
-                animator.SetBool("IsDashing", false);
-                //animator.SetBool("IsDashingUpRightORDownLeft", false);
-                //animator.SetBool("IsDashingUpLeftORDownRight", false);
+                rb.velocity = new Vector2(0, 0); //If the player touches the ground while diagonal dashing downward, stop their dash movement.
+            }
+            if (isNextToWall == true && (dashIsDiagonalUpRight == true || dashIsDiagonalUpLeft == true || dashIsDiagonalDownRight == true || dashIsDiagonalDownLeft == true))
+            {
+                rb.velocity = new Vector2(0, 0); //If the player touches the wall while diagonal dashing, stop their dash movement.
             }
 
             if (dashTimeElapsed >= dashDuration)
@@ -258,8 +278,8 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsDashing", false);
                 animator.SetBool("IsDashingDown", false);
                 animator.SetBool("IsDashingUp", false);
-                animator.SetBool("IsDashingUpRightORDownLeft", false);
-                animator.SetBool("IsDashingUpLeftORDownRight", false);
+                //animator.SetBool("IsDashingUpRightORDownLeft", false);
+                //animator.SetBool("IsDashingUpLeftORDownRight", false);
 
             }
         }
@@ -277,42 +297,42 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
-        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false) //Dashes Up-Right
+        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false) //Dashes Up-Right
         {
             buttonDownDashUpRight = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false) //Dashes Up-Left
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false) //Dashes Up-Left
         {
             buttonDownDashUpLeft = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Right
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Right
         {
             buttonDownDashDownRight = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false) //Dashes Down-Left
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Left
         {
             buttonDownDashDownLeft = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false) //Dashes Right
+        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && isNextToWall == false) //Dashes Right
         {
             buttonDownDashRight = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false) //Dashes Left
+        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && isNextToWall == false) //Dashes Left
         {
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false) // && dashedUpOnce == false) //Dashes Up
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false)// && dashedUpOnce == false) //Dashes Up
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsOnCooldown == false && isGrounded == false) //Dashes Down
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsOnCooldown == false && isGrounded == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false) //Dashes Down
         {
             buttonDownDashDown = true;
             trail.SetActive(true);
@@ -431,14 +451,20 @@ public class PlayerController : MonoBehaviour
     {
         //Flip function used if the player looks the other direction.
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+    void IsJumping()
+    {
+        //This is later needed to invoke because since the player starts off grounded, it would reset immediately unless there's a timer.
+        animator.SetBool("IsJumping", true);
+        isJumping = true;
+        Invoke("IsJumpingTurnOff", 0.05f);
     }
 
     void IsJumpingTurnOff()
     {
-        //This is later needed to invoke because since the player starts off grounded, it would reset immediately unless there's a timer.
         isJumping = false;
     }
 }
