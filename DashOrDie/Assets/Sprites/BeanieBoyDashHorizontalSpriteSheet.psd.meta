@@ -3,8 +3,9 @@ guid: c6d6e0d61468c1a44b5ccd3bc2be48a9
 TextureImporter:
   fileIDToRecycleName:
     21300000: BeanieBoyDashHorizontalSpriteSheet_0
-    21300002: BeanieBoyDashHorizontalSpriteSheet_1
+    21300002: BeanieBoyDashHorizontalSpriteSheet_2
     21300004: BeanieBoyDashHorizontalSpriteSheet_2
+    21300006: BeanieBoyDashHorizontalSpriteSheet_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -91,11 +92,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 32
+        y: 6
+        width: 64
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -107,13 +108,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BeanieBoyDashHorizontalSpriteSheet_1
+      name: BeanieBoyDashHorizontalSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 0
+        y: 70
+        width: 64
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b6d29d80a262b9408ee5b5dca0534f4
+      spriteID: 68b4943534151b44ba7ad4e913a04086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BeanieBoyDashHorizontalSpriteSheet_2
+      name: BeanieBoyDashHorizontalSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 0
+        y: 38
+        width: 64
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41b71f56b181273499aef1f873c3ebb3
+      spriteID: 25230ee7b9aaa054f88c070236e9d14b
       vertices: []
       indices: 
       edges: []

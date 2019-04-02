@@ -43,20 +43,30 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     [Header("Ground/Wall/Ceiling Check Settings:")]
-    public bool isGrounded = false;
     public Transform topLeftGroundCheck;
     public Transform bottomRightGroundCheck;
+    public bool isGrounded = false;
+
+    public Transform topLeftWallCheck;
+    public Transform bottomRightWallCheck;
+    public bool isNextToWall = false;
+
+    public Transform topLeftCeilingCheck;
+    public Transform bottomRightCeilingCheck;
+    public bool isTouchingCeiling = false;
+
     public LayerMask groundLayer;
 
-    public Transform wallCheck;
-    public bool isNextToWall = false;
+    [Space]
+    [Header("Trail:")]
+    public GameObject trail;
+    public TrailRenderer trailR;
+    public GameObject trail2;
+    public TrailRenderer trailR2;
 
     [Space]
     [Header("Other:")]
     public Animator animator;
-
-    public GameObject trail;
-    public GameObject trail2;
 
     private HealthScript HS;
     private HazardScript HazS;
@@ -121,23 +131,14 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", 0f);
         }
 
-        //Check if player is next to a wall by using a raycast
-        RaycastHit2D wallHitInfo = Physics2D.Raycast(wallCheck.position, wallCheck.right, 0.01f);
+        //Wall check. If the Floor layer is touching the area (which is two empty objects placed next to the player) then it's next to a wall.
+        isNextToWall = Physics2D.OverlapArea(topLeftWallCheck.position, bottomRightWallCheck.position, groundLayer);
 
-        if (wallHitInfo)
-        {
-            if (wallHitInfo.transform.tag == "Building")
-            {
-                isNextToWall = true;
-            }
-        }
-        else
-        {
-            isNextToWall = false;
-        }
+        //Ground check. If the Floor layer is touching the area (which is two empty objects placed under the player) then it's grounded.
+        isGrounded = Physics2D.OverlapArea(topLeftGroundCheck.position, bottomRightGroundCheck.position, groundLayer);
 
-        //Ground check. If the ground layer is touching the area (which is two empty objects placed under the player) then it's grounded.
-        isGrounded = Physics2D.OverlapArea(topLeftGroundCheck.position, bottomRightGroundCheck.position, groundLayer); 
+        //Ceiling check. If the Floor layer is touching the area (which is two empty objects placed above the player) then it's touching the ceiling.
+        isTouchingCeiling = Physics2D.OverlapArea(topLeftCeilingCheck.position, bottomRightCeilingCheck.position, groundLayer);
 
         //If the player doesn't have 0 extra jumps, perofrm a mid-air jump. Plays mid-air jumping animation. Can't jump while dash is active.
         if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && isGrounded == false && dashIsActive == false)
@@ -235,6 +236,10 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = new Vector2(0, 0); //If the player touches the wall while diagonal dashing, stop their dash movement.
             }
+            if (isTouchingCeiling == true && (dashIsDiagonalUpRight == true || dashIsDiagonalUpLeft == true || dashIsUpward == true))
+            {
+                rb.velocity = new Vector2(0, 0); //If the player touches the ceiling while diagonal dashing, stop their dash movement.
+            }
 
             if (dashTimeElapsed >= dashDuration)
             {
@@ -274,7 +279,9 @@ public class PlayerController : MonoBehaviour
 
                 dashTimeElapsed = 0f;
                 trail.SetActive(false);
+                trailR.Clear();
                 trail2.SetActive(false);
+                trailR2.Clear();
                 animator.SetBool("IsDashing", false);
                 animator.SetBool("IsDashingDown", false);
                 animator.SetBool("IsDashingUp", false);
@@ -297,12 +304,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
-        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false) //Dashes Up-Right
+        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false && isTouchingCeiling == false) //Dashes Up-Right
         {
             buttonDownDashUpRight = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false) //Dashes Up-Left
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false && isTouchingCeiling == false) //Dashes Up-Left
         {
             buttonDownDashUpLeft = true;
             trail2.SetActive(true);
@@ -317,17 +324,17 @@ public class PlayerController : MonoBehaviour
             buttonDownDashDownLeft = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && isNextToWall == false) //Dashes Right
+        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false && isNextToWall == false) //Dashes Right
         {
             buttonDownDashRight = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && isNextToWall == false) //Dashes Left
+        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false && isNextToWall == false) //Dashes Left
         {
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false)// && dashedUpOnce == false) //Dashes Up
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false && isTouchingCeiling == false)// && dashedUpOnce == false) //Dashes Up
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
