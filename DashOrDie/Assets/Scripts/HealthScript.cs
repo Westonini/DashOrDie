@@ -27,6 +27,7 @@ public class HealthScript : MonoBehaviour
     public Animator playerAnim;
 
     public bool playerHurt = false;
+    public bool playerInstakilled = false;
     public bool recovery;
     private float recoveryTime = 1.0f;
 
@@ -110,6 +111,34 @@ public class HealthScript : MonoBehaviour
             }
         }
 
+        if (playerInstakilled == true) //Happens when the player gets hit by a hazard that can instakill the player.
+        {
+            Health = 0;
+            InstantiateDiamonds();
+            FindObjectOfType<AudioManagerScript>().Play("Hurt");
+
+            firstDiamondAnim.SetBool("1stDiamondLost", true);
+            secondDiamondAnim.SetBool("2ndDiamondLost", true);
+            thirdDiamondAnim.SetBool("3rdDiamondLost", true);
+
+            gameOver = true;
+
+            if (gameOver == true && playedgameOverSound == false)
+            {
+                FindObjectOfType<AudioManagerScript>().Play("GameOver");
+                PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                StartCoroutine(FadeOut());
+                PC.GetComponent<Animator>().enabled = false;
+                PC.GetComponent<PlayerController>().enabled = false;
+                playedgameOverSound = true;           
+            }
+
+            Invoke("FadeOutTransition", 1.5f);
+            Invoke("Restart", 3);
+
+            playerInstakilled = false;
+
+        }
     }
 
     void Restart() //Restarts scene
