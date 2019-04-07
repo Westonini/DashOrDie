@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool dashIsOnCooldown;
     public float dashDuration;
     public float dashCooldownDuration;
-    private float dashTimeElapsed = 0f;
+    public float dashTimeElapsed = 0f;
     private float dashCooldownTime = 0f;
     private bool buttonDownDashRight;
     private bool buttonDownDashLeft;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool buttonDownDashUpLeft;
     private bool buttonDownDashDownRight;
     private bool buttonDownDashDownLeft;
-    private bool dashIsHorizontal;
+    public bool dashIsHorizontal;
     private bool dashIsDownward;
     private bool dashIsUpward;
     private bool dashIsDiagonalUpRight;

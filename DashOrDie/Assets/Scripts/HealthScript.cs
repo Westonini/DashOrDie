@@ -7,6 +7,7 @@ public class HealthScript : MonoBehaviour
 {
     private PlayerController PC;
     private GameObject Player;
+    private NonPassableHazardScript NPHS;
 
     private GameObject instantiatedDiamondLocation1;
     private GameObject instantiatedDiamondLocation2;
@@ -29,7 +30,8 @@ public class HealthScript : MonoBehaviour
     public bool playerHurt = false;
     public bool playerInstakilled = false;
     public bool recovery;
-    private float recoveryTime = 1.0f;
+    public bool recovery2;
+    public float recoveryTime = 1.0f;
 
     private bool gameOver = false;
     private bool playedgameOverSound = false;
@@ -39,6 +41,31 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Get the NPHS Script from a LaserBlue, else return it as null
+        try
+        {
+            NPHS = GameObject.Find("LaserBlueTypeA").GetComponent<NonPassableHazardScript>();
+        }
+
+        catch
+        {
+            NPHS = null;
+        }
+
+        if (NPHS == null)
+        {
+            try
+            {
+                NPHS = GameObject.Find("LaserBlueTypeB").GetComponent<NonPassableHazardScript>();
+            }
+
+            catch
+            {
+                NPHS = null;
+            }
+        }
+
+
         PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         Player = GameObject.FindWithTag("Player");
 
@@ -52,7 +79,17 @@ public class HealthScript : MonoBehaviour
     {
         if (playerHurt == true) //If player gets hurt make them immune to damage temporarily, instantiate diamonds, make the player's transparency blink, play a hurt sound, and switch the health state image.
         {
-            recovery = true;
+            if (NPHS != null && NPHS.nonPassableRecovery == true) //If they're hit by a NonPassableHazard do recovery2, otherwise do recovery.
+            {
+                recoveryTime = 0.65f;
+                recovery2 = true;
+                NPHS.nonPassableRecovery = false;
+            }
+            else
+            {
+                recovery = true;
+            }
+            
             InstantiateDiamonds();
             FindObjectOfType<AudioManagerScript>().Play("Hurt");
 
@@ -100,13 +137,24 @@ public class HealthScript : MonoBehaviour
         }
 
 
-        if (recovery == true) //Player is temporarily immune to damage once they take damage.
+        if (recovery == true && recovery2 != true) //Player is temporarily immune to damage once they take damage.
         {
             recoveryTime -= Time.deltaTime;
 
             if (recoveryTime <= 0.0f)
             {
                 recovery = false;
+                recoveryTime = 1.0f;
+            }
+        }
+
+        if (recovery2 == true) //Player is temporarily immune to damage once they take damage. (NonPassableHazard variant; shorter than regular recovery)
+        {
+            recoveryTime -= Time.deltaTime;
+
+            if (recoveryTime <= 0.0f)
+            {
+                recovery2 = false;              
                 recoveryTime = 1.0f;
             }
         }
