@@ -50,7 +50,7 @@ public class IntroCinematic : MonoBehaviour
         //Press escape to skip cutscene
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Tutorial");
         }
     }
 
@@ -140,6 +140,6 @@ public class IntroCinematic : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         escapeText.SetActive(false);
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Tutorial");
     }
 }
