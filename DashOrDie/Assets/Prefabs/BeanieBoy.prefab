@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482822325055774168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0325, y: 0.0684, z: 0}
+  m_LocalPosition: {x: 0.0214, y: 0.0684, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 8625546742496246431}
@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5622178606825239007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0302, y: 0.077, z: 0}
+  m_LocalPosition: {x: -0.0221, y: 0.077, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 8625546742496246431}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8898114667871247397}
   m_Layer: 0
-  m_Name: WallCheck (1)
+  m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4501375882960181957}
   m_Layer: 0
-  m_Name: GroundCheck1
+  m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3123907785918132590}
   m_Layer: 0
-  m_Name: WallCheck (2)
+  m_Name: WallCheck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,23 +561,26 @@ MonoBehaviour:
   dashIsActive: 0
   dashIsOnCooldown: 0
   dashDuration: 0.18
-  dashCooldownDuration: 0.38
-  isGrounded: 1
+  dashCooldownDuration: 0.35
+  dashTimeElapsed: 0
+  dashIsHorizontal: 0
   topLeftGroundCheck: {fileID: 4501375882960181957}
   bottomRightGroundCheck: {fileID: 4374284174048111910}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallCheck: {fileID: 0}
-  topLeftWallCheck: {fileID: 0}
-  bottomRightWallCheck: {fileID: 0}
+  isGrounded: 1
+  topLeftWallCheck: {fileID: 8898114667871247397}
+  bottomRightWallCheck: {fileID: 3123907785918132590}
   isNextToWall: 0
   topLeftCeilingCheck: {fileID: 1618012618498930125}
   bottomRightCeilingCheck: {fileID: 179156074817676319}
   isTouchingCeiling: 0
-  animator: {fileID: 8625546742496246429}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   trail: {fileID: 8625546742726518702}
+  trailR: {fileID: 8625546742726518672}
   trail2: {fileID: 882089281946958121}
+  trailR2: {fileID: 641192260835176754}
+  animator: {fileID: 8625546742496246429}
   rb: {fileID: 0}
   sr: {fileID: 8625546742496246428}
   r: 0

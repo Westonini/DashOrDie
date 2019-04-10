@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         catch
         {
-            Debug.Log("HealthScript not found.");
+           // Debug.Log("HealthScript not found.");
             HS = null;
         }
         
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
         catch
         {
-            Debug.Log("HazardScript not found.");
+            //Debug.Log("HazardScript not found.");
             HazS = null;
         }
 
