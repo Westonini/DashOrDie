@@ -30,7 +30,6 @@ public class TransitionIn : MonoBehaviour
         PC.GetComponent<Animator>().enabled = true;
         PC.GetComponent<PlayerController>().enabled = true;
 
-        transitionAnim.SetBool("FadeIn", false);
         transition.SetActive(false);
     }
 }
