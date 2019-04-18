@@ -26,6 +26,10 @@ public class OnOffScript : MonoBehaviour
             {
                 firstObjectAnim.SetBool("FadeOut", true);
             }
+            else
+            {
+                DisableSprite();
+            }
 
             if (firstObjectAnim2 != null)
             {
