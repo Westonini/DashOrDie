@@ -8,7 +8,7 @@ public class NonPassableHazardScript : MonoBehaviour
 
     private HealthScript HS;
 
-    private float knockbackTime = 0.65f;
+    private float knockbackTime = 0.475f;
 
     public bool nonPassableRecovery = false;
 
@@ -35,7 +35,7 @@ public class NonPassableHazardScript : MonoBehaviour
             if (knockbackTime <= 0.0f)
             {
                 gettingKnockedback = false;
-                knockbackTime = 0.65f;
+                knockbackTime = 0.475f;
                 PC.GetComponent<PlayerController>().enabled = true;
             }
         }
@@ -54,16 +54,19 @@ public class NonPassableHazardScript : MonoBehaviour
             if (PC.facingRight == true && PC.horizontalInput > 0)
             {
                 PC.rb.velocity = new Vector2(-2.5f, 8);
+
             }
 
             else if (PC.facingRight == false && PC.horizontalInput < 0)
             {
                 PC.rb.velocity = new Vector2(2.5f, 8);
+
             }
 
             else
             {
                 PC.rb.velocity = new Vector2(0.5f, 8);
+
             }
 
         }

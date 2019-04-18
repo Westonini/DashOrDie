@@ -6,6 +6,7 @@ public class FlashingLaser : MonoBehaviour
 {
     public GameObject laser;
     public GameObject laserLight;
+    public GameObject laserBlock;
     public GameObject laser2;
     public GameObject laserLight2;
     private bool laserIsActive = true;
@@ -33,6 +34,11 @@ public class FlashingLaser : MonoBehaviour
 
             laserLight.SetActive(false);
             laserLight2.SetActive(true);
+
+            if (laserBlock != null) //Used for Blacklasers
+            {
+                laserBlock.SetActive(false);
+            }
         }
         else if (laser2IsActive == true)
         {
@@ -48,6 +54,11 @@ public class FlashingLaser : MonoBehaviour
 
             laserLight.SetActive(true);
             laserLight2.SetActive(false);
+
+            if (laserBlock != null) //Used for Blacklasers
+            {
+                laserBlock.SetActive(true);
+            }
         }
 
         Invoke("Flash", 1);

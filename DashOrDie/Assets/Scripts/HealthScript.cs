@@ -41,10 +41,10 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get the NPHS Script from a LaserBlue, else return it as null
+        //Get the NPHS Script from a LaserBlack, else return it as null
         try
         {
-            NPHS = GameObject.Find("LaserBlueTypeA").GetComponent<NonPassableHazardScript>();
+            NPHS = GameObject.Find("LaserBlackTypeA").GetComponent<NonPassableHazardScript>();
         }
 
         catch
@@ -56,7 +56,7 @@ public class HealthScript : MonoBehaviour
         {
             try
             {
-                NPHS = GameObject.Find("LaserBlueTypeB").GetComponent<NonPassableHazardScript>();
+                NPHS = GameObject.Find("LaserBlackTypeB").GetComponent<NonPassableHazardScript>();
             }
 
             catch

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4029928913700503157}
   - component: {fileID: 4029928913700503156}
   - component: {fileID: 4029928913700503162}
-  - component: {fileID: 4029928913700503163}
+  - component: {fileID: 7533041971308168785}
   m_Layer: 0
   m_Name: LaserBlueTypeA
   m_TagString: Hazard
@@ -128,7 +128,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4029928913700503163
+--- !u!114 &7533041971308168785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,11 +137,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4029928913700503161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24cf57d8fcfa49f42a71dd2a95d05ef7, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonPassableRecovery: 0
-  gettingKnockedback: 0
 --- !u!1 &4029928913907354495
 GameObject:
   m_ObjectHideFlags: 0

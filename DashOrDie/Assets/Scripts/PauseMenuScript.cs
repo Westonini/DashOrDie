@@ -60,7 +60,7 @@ public class PauseMenuScript : MonoBehaviour
         transitionAnim.SetBool("FadeIn", false);
         transitionAnim.SetBool("FadeOut", true);
 
-        Invoke("LoadMenu2", 0.025f);
+        Invoke("LoadMenu2", 0.035f);
     }
 
     public void LoadMenu2() //Loads the MainMenu
@@ -77,7 +77,7 @@ public class PauseMenuScript : MonoBehaviour
         transitionAnim.SetBool("FadeIn", false);
         transitionAnim.SetBool("FadeOut", true);
 
-        Invoke("QuitGame2", 0.025f);
+        Invoke("QuitGame2", 0.035f);
     }
 
     void QuitGame2() //Quits the game

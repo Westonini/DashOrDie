@@ -139,8 +139,8 @@ GameObject:
   - component: {fileID: 3975797360695100738}
   - component: {fileID: 3975797360695100751}
   - component: {fileID: 3975797360695100750}
-  - component: {fileID: 3975797360695100737}
   - component: {fileID: 3975797360695100740}
+  - component: {fileID: 261227756635921092}
   m_Layer: 0
   m_Name: SpinningLaserBlue_
   m_TagString: Hazard
@@ -237,20 +237,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.25}
   m_EdgeRadius: 0
---- !u!114 &3975797360695100737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3975797360695100739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24cf57d8fcfa49f42a71dd2a95d05ef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonPassableRecovery: 0
-  gettingKnockedback: 0
 --- !u!95 &3975797360695100740
 Animator:
   serializedVersion: 3
@@ -270,6 +256,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &261227756635921092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975797360695100739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3975797361575030853
 GameObject:
   m_ObjectHideFlags: 0

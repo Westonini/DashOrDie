@@ -8,7 +8,15 @@ public class CheckpointSave : MonoBehaviour
 
     void Awake()
     {
-        CM = GameObject.FindWithTag("CM").GetComponent<CheckpointManager>();
+        try
+        {
+            CM = GameObject.FindWithTag("CM").GetComponent<CheckpointManager>();
+        }
+        catch
+        {
+            CM = null;
+        }
+        
     }
     void OnTriggerEnter2D(Collider2D collision) //If the player touches a GameObject with a "CheckpointX" tag, change the checkpointNumber in the CheckpointManager Script.
     {

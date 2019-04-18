@@ -1305,6 +1305,11 @@ MonoBehaviour:
   transition: {fileID: 6801756115711333351}
   transitionAnim: {fileID: 6801756115141578415}
   playerAnim: {fileID: 2085568982}
+  room1: {fileID: 0}
+  room2: {fileID: 0}
+  room3: {fileID: 0}
+  room4: {fileID: 0}
+  room5: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -13517,8 +13522,8 @@ MonoBehaviour:
   firstDiamondAnim: {fileID: 517797437}
   secondDiamondAnim: {fileID: 453856836}
   thirdDiamondAnim: {fileID: 204771508}
-  transition: {fileID: 0}
-  transitionAnim: {fileID: 0}
+  transition: {fileID: 6801756115711333351}
+  transitionAnim: {fileID: 6801756115141578415}
   playerAnim: {fileID: 2085568982}
   playerHurt: 0
   playerInstakilled: 0
