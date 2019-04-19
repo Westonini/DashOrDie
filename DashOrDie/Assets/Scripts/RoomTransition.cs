@@ -8,6 +8,8 @@ public class RoomTransition : MonoBehaviour
 
     public GameObject currentRoom;
     public GameObject nextRoom;
+    public GameObject levelCompleteUI;
+    public GameObject levelCompleteCamera;
 
     void Awake()
     {
@@ -25,8 +27,17 @@ public class RoomTransition : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            TS.BeginTransitionOut();
-            Invoke("RoomChange", 3);
+            if (nextRoom != null)
+            {
+                TS.BeginTransitionOut();
+                Invoke("RoomChange", 3);
+            }
+            else
+            {
+                TS.BeginTransitionOut();
+                Invoke("TurnOnLevelCompleteUI", 1.5f);
+            }
+
         }
     }
 
@@ -35,5 +46,13 @@ public class RoomTransition : MonoBehaviour
         currentRoom.SetActive(false);
         nextRoom.SetActive(true);
         TS.BeginTransitionIn();
+    }
+
+    void TurnOnLevelCompleteUI()
+    {
+        levelCompleteUI.SetActive(true);
+        levelCompleteCamera.SetActive(true);
+        currentRoom.SetActive(false);
+        FindObjectOfType<AudioManagerScript>().Play("Win");
     }
 }

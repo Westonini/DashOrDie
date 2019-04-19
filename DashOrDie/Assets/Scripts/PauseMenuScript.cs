@@ -8,6 +8,7 @@ public class PauseMenuScript : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject levelCompleteMenu;
     public GameObject transition;
     public Animator transitionAnim;
 
@@ -20,7 +21,7 @@ public class PauseMenuScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) //If the player presses the Escape button...
+        if (Input.GetKeyDown(KeyCode.Escape) && levelCompleteMenu.activeInHierarchy == false && transition.activeInHierarchy == false) //If the player presses the Escape button...
         {
             if (gameIsPaused) //If the game is paused then it'll resume the game..
             {

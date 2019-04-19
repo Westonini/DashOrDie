@@ -40,6 +40,10 @@ public class CheckpointSave : MonoBehaviour
         {
             CM.checkpointNumber = 5;
         }
+        if (collision.tag == "LevelFinish")
+        {
+            CM.checkpointNumber = 0;
+        }
     }
 
 
