@@ -8,7 +8,7 @@ public class CheckpointSave : MonoBehaviour
 
     void Awake()
     {
-        try
+        try //Try to get the LevelManager script from an object with a tag "LM". Otherwise set LM to null.
         {
             LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
         }
@@ -40,7 +40,7 @@ public class CheckpointSave : MonoBehaviour
         {
             LM.checkpointNumber = 5;
         }
-        if (collision.tag == "LevelFinish")
+        if (collision.tag == "LevelFinish") //Resets various things in the LevelManager Script if the player reaches the end of the level.
         {
             LM.checkpointNumber = 0;
             LM.endTimer = true;

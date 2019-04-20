@@ -13,6 +13,7 @@ public class RoomTransition : MonoBehaviour
 
     void Awake()
     {
+        //Try to get the TransitionScript script by locating the GameplayCanvas object.
         try
         {
             TS = GameObject.Find("GameplayCanvas").GetComponent<TransitionScript>();
@@ -25,7 +26,8 @@ public class RoomTransition : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player") //If there's something in "nextRoom" in the inspector, call BeginTransitionOut() from the TransitionScript then invoke RoomChange().
+                                       //If there isn't something in "nextRoom" in the inspector, call BeginTransitionOut() from the TransitionScript then invoke TurnOnLevelCompleteUI().
         {
             if (nextRoom != null)
             {
@@ -41,14 +43,14 @@ public class RoomTransition : MonoBehaviour
         }
     }
 
-    void RoomChange()
+    void RoomChange() //Disables the current room and enables the next room. Calls BeginTransitionIn() from the TransitionScript.
     {
         currentRoom.SetActive(false);
         nextRoom.SetActive(true);
         TS.BeginTransitionIn();
     }
 
-    void TurnOnLevelCompleteUI()
+    void TurnOnLevelCompleteUI() //Disables the current room and enables the LevelCompleteUI and its Camera. Also plays a win sound.
     {
         levelCompleteUI.SetActive(true);
         levelCompleteCamera.SetActive(true);

@@ -16,7 +16,7 @@ public class OnOffScript : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player") //If the player touches the object this script is attached to, turn off the first sprite if there is one by first fading it out, and also enable the second object.
         {
             Invoke("DisableSprite", 3);
             secondObject.SetActive(true);

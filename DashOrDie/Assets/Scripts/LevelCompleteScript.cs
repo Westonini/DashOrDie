@@ -179,7 +179,7 @@ public class LevelCompleteScript : MonoBehaviour
         }
     }
 
-    public void NextLevel() 
+    public void NextLevel() //Turns off the LevelCompleteMenu, plays a button click sound, and starts the transition fade out. Also resets some of the LevelManager Script variables. Once the transition covers the screen, call NextLevel2()
     {
         FindObjectOfType<AudioManagerScript>().Play("ButtonClick");
         transition.SetActive(true);
@@ -193,12 +193,12 @@ public class LevelCompleteScript : MonoBehaviour
         LM.endTimer = false;
     }
 
-    public void NextLevel2()
+    public void NextLevel2() //Loads next scene in build.
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void ReturnToMainMenu()
+    public void ReturnToMainMenu() //Turns off the LevelCompleteMenu, plays a button click sound, and starts the transition fade out. Also resets some of the LevelManager Script variables. Once the transition covers the screen, call ReturnToMainMenu2()
     {
         FindObjectOfType<AudioManagerScript>().Play("ButtonClick");
         transition.SetActive(true);
@@ -212,7 +212,7 @@ public class LevelCompleteScript : MonoBehaviour
         LM.endTimer = false;
     }
 
-    public void ReturnToMainMenu2()
+    public void ReturnToMainMenu2() //Loads MainMenu scene and stops the music.
     {
         FindObjectOfType<AudioManagerScript>().Stop("Music");
         SceneManager.LoadScene("MainMenu");

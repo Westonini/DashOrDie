@@ -19,7 +19,7 @@ public class TransitionScript : MonoBehaviour
 
     void Awake()
     {
-        try
+        try //Try to get the LevelManager Script from an object tagged "LM". Otherwise set LM to null.
         {
             LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
         }
@@ -62,7 +62,7 @@ public class TransitionScript : MonoBehaviour
 
     public void BeginTransitionIn() //Freezes player and transitions in.
     {
-        try
+        try //If there's no player gameobject skip this code.
         {
             PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             PC.GetComponent<Animator>().enabled = false;
@@ -81,7 +81,7 @@ public class TransitionScript : MonoBehaviour
 
     public void BeginTransitionOut() //Freezes player and transitions out.
     {
-        try
+        try //If there's no player gameobject skip this code.
         {
             PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             PC.GetComponent<Animator>().enabled = false;
@@ -99,7 +99,7 @@ public class TransitionScript : MonoBehaviour
 
     void RemoveTransition() //Enables the player to move after the transition ends. 
     {
-        try
+        try //If there's no player gameobject skip this code.
         {
             PC.GetComponent<Animator>().enabled = true;
             PC.GetComponent<PlayerController>().enabled = true;

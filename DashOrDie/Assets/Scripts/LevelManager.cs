@@ -6,17 +6,17 @@ public class LevelManager : MonoBehaviour
 {
     private static LevelManager instance;
     public int checkpointNumber = 0; //Keeps track of what checkpoint the player is currently on in the level.
-    public bool playerHasDiedOnce = false;
-    public int timesHit = 0;
+    public bool playerHasDiedOnce = false; //Keeps track of if the player has died once during their playthrough of the level.
+    public int timesHit = 0; //Keeps track of how many times the player has been hit during the level.
 
-    public float timer = 1001f;
-    public bool dontResetTimer = false;
-    public bool endTimer = false;
-    public bool finishedBeforeTimeLimit = true;
+    public float timer = 1001f; //A timer that is set by the LevelTimerScript.
+    public bool dontResetTimer = false; //This variable is used to ensure that if a player dies and the scene restarts, the timer wont restart as well.
+    public bool endTimer = false; //Ends the timer if-statement in Update()
+    public bool finishedBeforeTimeLimit = true; //Tracks if the player finished before the timer ran out.
 
     void Awake()
     {
-        if (instance == null)
+        if (instance == null) //Makes the object not destroy itself when loading or restarting a scene.
         {
             instance = this;
             DontDestroyOnLoad(instance);

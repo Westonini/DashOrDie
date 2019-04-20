@@ -47,7 +47,7 @@ public class LevelTimerScript : MonoBehaviour
                 LM.timer = 180;
                 LM.dontResetTimer = true;
             }
-            else
+            else //If no options for the timer are selected in the inspector, end the timer immediately as the game begins.
             {
                 LM.endTimer = true;
             }
