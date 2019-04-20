@@ -14,9 +14,15 @@ public class PauseMenuScript : MonoBehaviour
 
     private PlayerController PC;
 
-    void Start()
-    {
-        PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+    void Awake()
+    {   try
+        {
+            PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        }
+        catch
+        {
+            PC = null;
+        }
     }
 
     void Update()

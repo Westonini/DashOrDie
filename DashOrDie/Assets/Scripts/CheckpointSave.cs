@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CheckpointSave : MonoBehaviour
 {
-    private CheckpointManager CM;
+    private LevelManager LM;
 
     void Awake()
     {
         try
         {
-            CM = GameObject.FindWithTag("CM").GetComponent<CheckpointManager>();
+            LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
         }
         catch
         {
-            CM = null;
+            LM = null;
         }
         
     }
@@ -22,27 +22,30 @@ public class CheckpointSave : MonoBehaviour
     {
         if (collision.tag == "Checkpoint1")
         {
-            CM.checkpointNumber = 1;
+            LM.checkpointNumber = 1;
         }
         if (collision.tag == "Checkpoint2")
         {
-            CM.checkpointNumber = 2;
+            LM.checkpointNumber = 2;
         }
         if (collision.tag == "Checkpoint3")
         {
-            CM.checkpointNumber = 3;
+            LM.checkpointNumber = 3;
         }
         if (collision.tag == "Checkpoint4")
         {
-            CM.checkpointNumber = 4;
+            LM.checkpointNumber = 4;
         }
         if (collision.tag == "Checkpoint5")
         {
-            CM.checkpointNumber = 5;
+            LM.checkpointNumber = 5;
         }
         if (collision.tag == "LevelFinish")
         {
-            CM.checkpointNumber = 0;
+            LM.checkpointNumber = 0;
+            LM.endTimer = true;
+            LM.dontResetTimer = false;
+            LM.timer = 1001f;
         }
     }
 

@@ -10,7 +10,7 @@ public class TransitionScript : MonoBehaviour
     private PlayerController PC;
     public Animator playerAnim;
 
-    private CheckpointManager CM;
+    private LevelManager LM;
     public GameObject room1;
     public GameObject room2;
     public GameObject room3;
@@ -21,11 +21,11 @@ public class TransitionScript : MonoBehaviour
     {
         try
         {
-            CM = GameObject.FindWithTag("CM").GetComponent<CheckpointManager>();
+            LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
         }
         catch
         {
-            CM = null;
+            LM = null;
         }
         
     }
@@ -33,24 +33,24 @@ public class TransitionScript : MonoBehaviour
     {
         BeginTransitionIn(); //calls this function at the start of the scene.
         
-        if (CM != null)
+        if (LM != null)
         {
-            if (CM.checkpointNumber == 1) //If the first checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room2.
+            if (LM.checkpointNumber == 1) //If the first checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room2.
             {
                 room1.SetActive(false);
                 room2.SetActive(true);
             }
-            if (CM.checkpointNumber == 2) //If the second checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room3.
+            if (LM.checkpointNumber == 2) //If the second checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room3.
             {
                 room1.SetActive(false);
                 room3.SetActive(true);
             }
-            if (CM.checkpointNumber == 3) //If the third checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room4.
+            if (LM.checkpointNumber == 3) //If the third checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room4.
             {
                 room1.SetActive(false);
                 room4.SetActive(true);
             }
-            if (CM.checkpointNumber == 4) //If the fourth checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room5.
+            if (LM.checkpointNumber == 4) //If the fourth checkpoint was already reached (found by referencing the CheckpointManager Script) then start at room5.
             {
                 room1.SetActive(false);
                 room5.SetActive(true);
@@ -62,9 +62,16 @@ public class TransitionScript : MonoBehaviour
 
     public void BeginTransitionIn() //Freezes player and transitions in.
     {
-        PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        PC.GetComponent<Animator>().enabled = false;
-        PC.GetComponent<PlayerController>().enabled = false;
+        try
+        {
+            PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            PC.GetComponent<Animator>().enabled = false;
+            PC.GetComponent<PlayerController>().enabled = false;
+        }
+        catch
+        {
+
+        }
 
         transition.SetActive(true);
         transitionAnim.SetBool("FadeOut", false);
@@ -74,9 +81,16 @@ public class TransitionScript : MonoBehaviour
 
     public void BeginTransitionOut() //Freezes player and transitions out.
     {
-        PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        PC.GetComponent<Animator>().enabled = false;
-        PC.GetComponent<PlayerController>().enabled = false;
+        try
+        {
+            PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            PC.GetComponent<Animator>().enabled = false;
+            PC.GetComponent<PlayerController>().enabled = false;
+        }
+        catch
+        {
+
+        }
 
         transition.SetActive(true);
         transitionAnim.SetBool("FadeIn", false);
@@ -85,8 +99,15 @@ public class TransitionScript : MonoBehaviour
 
     void RemoveTransition() //Enables the player to move after the transition ends. 
     {
-        PC.GetComponent<Animator>().enabled = true;
-        PC.GetComponent<PlayerController>().enabled = true;
+        try
+        {
+            PC.GetComponent<Animator>().enabled = true;
+            PC.GetComponent<PlayerController>().enabled = true;
+        }
+        catch
+        {
+
+        }
 
         transition.SetActive(false);
     }

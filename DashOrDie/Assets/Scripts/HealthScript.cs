@@ -38,8 +38,8 @@ public class HealthScript : MonoBehaviour
 
     public int Health = 3;
 
-    // Start is called before the first frame update
-    void Start()
+    private LevelManager LM;
+    void Awake()
     {
         //Get the NPHS Script from a LaserBlack, else return it as null
         try
@@ -64,8 +64,20 @@ public class HealthScript : MonoBehaviour
                 NPHS = null;
             }
         }
-
-
+        
+        //Get the LevelManager Script from the LM tagged object
+        try
+        {
+            LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
+        }
+        catch
+        {
+            LM = null;
+        }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         Player = GameObject.FindWithTag("Player");
 
@@ -89,9 +101,10 @@ public class HealthScript : MonoBehaviour
             {
                 recovery = true;
             }
-            
+         
             InstantiateDiamonds();
             FindObjectOfType<AudioManagerScript>().Play("Hurt");
+            LM.timesHit += 1;
 
             //Changes the health state image per health state.
             if (Health == 3)
@@ -118,6 +131,7 @@ public class HealthScript : MonoBehaviour
 
                 if (gameOver == true && playedgameOverSound == false)
                 {
+                    LM.playerHasDiedOnce = true;
                     FindObjectOfType<AudioManagerScript>().Play("GameOver");
                     PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                     StartCoroutine(FadeOut());
@@ -164,6 +178,7 @@ public class HealthScript : MonoBehaviour
             Health = 0;
             InstantiateDiamonds();
             FindObjectOfType<AudioManagerScript>().Play("Hurt");
+            LM.timesHit += 1;
 
             firstDiamondAnim.SetBool("1stDiamondLost", true);
             secondDiamondAnim.SetBool("2ndDiamondLost", true);
@@ -173,6 +188,7 @@ public class HealthScript : MonoBehaviour
 
             if (gameOver == true && playedgameOverSound == false)
             {
+                LM.playerHasDiedOnce = true;
                 FindObjectOfType<AudioManagerScript>().Play("GameOver");
                 PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 StartCoroutine(FadeOut());
