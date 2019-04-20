@@ -44,7 +44,7 @@ public class HealthScript : MonoBehaviour
         //Get the NPHS Script from a LaserBlack, else return it as null
         try
         {
-            NPHS = GameObject.Find("LaserBlackTypeA").GetComponent<NonPassableHazardScript>();
+            NPHS = GameObject.Find("BlackLaserTypeA").GetComponent<NonPassableHazardScript>();
         }
 
         catch
@@ -56,7 +56,7 @@ public class HealthScript : MonoBehaviour
         {
             try
             {
-                NPHS = GameObject.Find("LaserBlackTypeB").GetComponent<NonPassableHazardScript>();
+                NPHS = GameObject.Find("BlackLaserTypeB").GetComponent<NonPassableHazardScript>();
             }
 
             catch
@@ -169,7 +169,7 @@ public class HealthScript : MonoBehaviour
             if (recoveryTime <= 0.0f)
             {
                 recovery2 = false;              
-                recoveryTime = 1.0f;
+                recoveryTime = 1.0f;  
             }
         }
 

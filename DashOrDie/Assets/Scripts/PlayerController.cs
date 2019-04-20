@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool buttonDownDashDownLeft;
     public bool dashIsHorizontal;
     private bool dashIsDownward;
+    [SerializeField]
     private bool dashIsUpward;
     private bool dashIsDiagonalUpRight;
     private bool dashIsDiagonalUpLeft;
@@ -286,9 +287,19 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsDashingDown", false);
                 animator.SetBool("IsDashingUp", false);
                 //animator.SetBool("IsDashingUpRightORDownLeft", false);
-                //animator.SetBool("IsDashingUpLeftORDownRight", false);
-
+                //animator.SetBool("IsDashingUpLeftORDownRight", false);      
             }
+        }
+
+        //Used to fix a potential bug. If the dash isn't active, turn off all the dashIsXXX bools.
+        if (dashIsActive != true)
+        {
+            dashIsUpward = false;
+            dashIsDownward = false;
+            dashIsDiagonalUpRight = false;
+            dashIsDiagonalUpLeft = false;
+            dashIsDiagonalDownRight = false;
+            dashIsDiagonalDownLeft = false;
         }
 
        //While dash is on cooldown, dash is unusable.
