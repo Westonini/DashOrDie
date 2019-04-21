@@ -409,7 +409,7 @@ public class PlayerController : MonoBehaviour
 
         if (buttonDownDashUp == true)
         {
-            rb.velocity = Vector2.up * dashPower;
+            rb.velocity = Vector2.up * (dashPower * 1.2f);
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             dashIsActive = true;
             dashIsUpward = true;

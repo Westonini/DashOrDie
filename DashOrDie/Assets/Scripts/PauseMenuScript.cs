@@ -13,15 +13,26 @@ public class PauseMenuScript : MonoBehaviour
     public Animator transitionAnim;
 
     private PlayerController PC;
+    private LevelManager LM;
 
     void Awake()
-    {   try
+    {
+        try
         {
             PC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
         catch
         {
             PC = null;
+        }
+
+        try
+        {
+            LM = GameObject.FindWithTag("LM").GetComponent<LevelManager>();
+        }
+        catch
+        {
+            LM = null;
         }
     }
 
@@ -66,6 +77,14 @@ public class PauseMenuScript : MonoBehaviour
         transition.SetActive(true);
         transitionAnim.SetBool("FadeIn", false);
         transitionAnim.SetBool("FadeOut", true);
+
+        LM.timesHit = 0;
+        LM.playerHasDiedOnce = false;
+        LM.finishedBeforeTimeLimit = true;
+        LM.checkpointNumber = 0;
+        LM.endTimer = true;
+        LM.dontResetTimer = false;
+        LM.timer = 1001f;
 
         Invoke("LoadMenu2", 0.035f);
     }

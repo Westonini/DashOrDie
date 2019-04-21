@@ -27,6 +27,8 @@ public class LevelTimerScript : MonoBehaviour
     {
         if (LM.dontResetTimer != true)
         {
+            LM.endTimer = false;
+
             if (thirtySecondTimer == true) //If the oneMinuteTimer bool is enabled in the inspector the timer will be set to 60 seconds.
             {
                 LM.timer = 30;

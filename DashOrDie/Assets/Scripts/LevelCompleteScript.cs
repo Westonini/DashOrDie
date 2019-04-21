@@ -195,7 +195,7 @@ public class LevelCompleteScript : MonoBehaviour
 
     public void NextLevel2() //Loads next scene in build.
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);     
     }
 
     public void ReturnToMainMenu() //Turns off the LevelCompleteMenu, plays a button click sound, and starts the transition fade out. Also resets some of the LevelManager Script variables. Once the transition covers the screen, call ReturnToMainMenu2()
@@ -209,7 +209,6 @@ public class LevelCompleteScript : MonoBehaviour
         LM.timesHit = 0;
         LM.playerHasDiedOnce = false;
         LM.finishedBeforeTimeLimit = true;
-        LM.endTimer = false;
     }
 
     public void ReturnToMainMenu2() //Loads MainMenu scene and stops the music.
