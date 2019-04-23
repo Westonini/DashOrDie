@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
     public Transform topLeftCeilingCheck;
     public Transform bottomRightCeilingCheck;
     public bool isTouchingCeiling = false;
+    public Transform topLeftNearCeilingCheck;
+    public Transform bottomRightNearCeilingCheck;
+    public bool isCloseToCeiling = false;
 
     public LayerMask groundLayer;
 
@@ -138,8 +141,11 @@ public class PlayerController : MonoBehaviour
         //Ground check. If the Floor layer is touching the area (which is two empty objects placed under the player) then it's grounded.
         isGrounded = Physics2D.OverlapArea(topLeftGroundCheck.position, bottomRightGroundCheck.position, groundLayer);
 
-        //Ceiling check. If the Floor layer is touching the area (which is two empty objects placed above the player) then it's touching the ceiling.
+        //Ceiling check. If the Floor layer is touching the area (which is two empty objects placed above the player) then it's touching the ceiling. Used so that if the player touches the ceiling their dash is stopped.
         isTouchingCeiling = Physics2D.OverlapArea(topLeftCeilingCheck.position, bottomRightCeilingCheck.position, groundLayer);
+
+        //Ceiling check. If the Floor layer is touching the area (which is two empty objects placed above the player) then it's near the ceiling. Used so that if the player is near the ceiling they cant begin their upwards dashes.
+        isCloseToCeiling = Physics2D.OverlapArea(topLeftNearCeilingCheck.position, bottomRightNearCeilingCheck.position, groundLayer);
 
         //If the player doesn't have 0 extra jumps, perofrm a mid-air jump. Plays mid-air jumping animation. Can't jump while dash is active.
         if (Input.GetButtonDown("Jump") && extraJumpCount != 0 && isGrounded == false && dashIsActive == false)
@@ -315,12 +321,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
-        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false && isTouchingCeiling == false) //Dashes Up-Right
+        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Right
         {
             buttonDownDashUpRight = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false && isTouchingCeiling == false) //Dashes Up-Left
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Left
         {
             buttonDownDashUpLeft = true;
             trail2.SetActive(true);
@@ -335,17 +341,17 @@ public class PlayerController : MonoBehaviour
             buttonDownDashDownLeft = true;
             trail2.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false && isNextToWall == false) //Dashes Right
+        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Right
         {
             buttonDownDashRight = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false && isNextToWall == false) //Dashes Left
+        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Left
         {
             buttonDownDashLeft = true;
             trail.SetActive(true);
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false && isTouchingCeiling == false)// && dashedUpOnce == false) //Dashes Up
+        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false && isCloseToCeiling == false)// && dashedUpOnce == false) //Dashes Up
         {
             buttonDownDashUp = true;
             trail.SetActive(true);
