@@ -110,22 +110,21 @@ public class HealthScript : MonoBehaviour
             if (Health == 3)
             {
                 StartCoroutine(Blink());
+                firstDiamondAnim.SetBool("1stDiamondGained", false);
                 firstDiamondAnim.SetBool("1stDiamondLost", true);
-                Invoke("LoseFirstDiamond", 2);
                 playerHurt = false;
             }
             else if (Health == 2)
             {
                 StartCoroutine(Blink());
+                secondDiamondAnim.SetBool("2ndDiamondGained", false);
                 secondDiamondAnim.SetBool("2ndDiamondLost", true);
-                Invoke("LoseSecondDiamond", 2);
                 playerHurt = false;
             }
             else if (Health == 1) //When health is equal to 1, freeze the player and play a game over sound. Then do a fade out transition in 1.5 and reset the scene after 3 seconds.
             {
                 StopCoroutine(Blink());
                 thirdDiamondAnim.SetBool("3rdDiamondLost", true);
-                Invoke("LoseThirdDiamond", 2);
 
                 gameOver = true;
 
@@ -214,19 +213,6 @@ public class HealthScript : MonoBehaviour
     {
         transition.SetActive(true);
         transitionAnim.SetBool("FadeOut", true);
-    }
-
-    void LoseFirstDiamond()
-    {
-        firstDiamond.SetActive(false);
-    }
-    void LoseSecondDiamond()
-    {
-        secondDiamond.SetActive(false);
-    }
-    void LoseThirdDiamond()
-    {
-        thirdDiamond.SetActive(false);
     }
 
     IEnumerator FadeOut() //Causes the alpha and y-scale of the player to rapidly decrease.
