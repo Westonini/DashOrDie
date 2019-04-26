@@ -7,19 +7,21 @@ public class AnimatorStartAndSpeedValuesScript : MonoBehaviour
     private Animator anim;
 
     [Range(0, 1)]
-    public float animStartTime;
+    public float animStartTime; //Sets the start time for the animation.
 
     [Range(1, 5)]
-    public float animSpeed = 1;
+    public float animSpeed = 1; //Sets the speed for the animation.
 
-    public string animationName;
+    public string animationName; //In order to work, the animation's name needs to be here in the inspector.
 
-    // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();  //Gets the animator component from the gameobject
 
-        anim.speed = animSpeed;
-        anim.Play(animationName, 0, animStartTime);
+        if (animationName != null)
+        {
+            anim.speed = animSpeed;
+            anim.Play(animationName, 0, animStartTime);
+        }
     }
 }

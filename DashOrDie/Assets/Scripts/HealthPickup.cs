@@ -14,7 +14,7 @@ public class HealthPickup : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && HS.Health < 3)
+        if (collision.tag == "Player" && HS.Health < 3) //If the pickup object touches the player and the player's hp is less than 3...
         {
             if (HS.Health == 2)
             {
