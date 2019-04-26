@@ -10,7 +10,7 @@ public class AnimatorStartAndSpeedValuesScript : MonoBehaviour
     public float animStartTime;
 
     [Range(1, 5)]
-    public float animSpeed;
+    public float animSpeed = 1;
 
     public string animationName;
 

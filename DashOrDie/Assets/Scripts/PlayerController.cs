@@ -77,9 +77,13 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody2D rb;
+    [HideInInspector]
     public SpriteRenderer sr;
+    [HideInInspector]
     public float r, g, b, alpha;
     public bool facingRight = true;
+
+    public ParticleSystem dashParticle;
 
     void Start()
     {
@@ -401,6 +405,7 @@ public class PlayerController : MonoBehaviour
             dashIsHorizontal = true;
             buttonDownDashRight = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
         
         if (buttonDownDashLeft == true)
@@ -411,6 +416,7 @@ public class PlayerController : MonoBehaviour
             dashIsHorizontal = true;
             buttonDownDashLeft = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashUp == true)
@@ -422,6 +428,7 @@ public class PlayerController : MonoBehaviour
             buttonDownDashUp = false;
             //dashedUpOnce = true;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashDown == true)
@@ -432,6 +439,7 @@ public class PlayerController : MonoBehaviour
             dashIsDownward = true;
             buttonDownDashDown = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashUpRight == true)
@@ -441,6 +449,7 @@ public class PlayerController : MonoBehaviour
             dashIsDiagonalUpRight = true;
             buttonDownDashUpRight = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashUpLeft == true)
@@ -450,6 +459,7 @@ public class PlayerController : MonoBehaviour
             dashIsDiagonalUpLeft = true;
             buttonDownDashUpLeft = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashDownRight == true)
@@ -459,6 +469,7 @@ public class PlayerController : MonoBehaviour
             dashIsDiagonalDownRight = true;
             buttonDownDashDownRight = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
 
         if (buttonDownDashDownLeft == true)
@@ -468,6 +479,7 @@ public class PlayerController : MonoBehaviour
             dashIsDiagonalDownLeft = true;
             buttonDownDashDownLeft = false;
             FindObjectOfType<AudioManagerScript>().Play("Dash");
+            dashParticle.Emit(20);
         }
     }
 

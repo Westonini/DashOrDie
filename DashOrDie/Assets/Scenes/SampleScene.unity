@@ -17115,6 +17115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 926080813, guid: a57e8f01fde651f43aa0f3f80a5890eb, type: 3}
+      propertyPath: TriggerModule.collisionShape0
+      value: 
+      objectReference: {fileID: 1083868090}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57e8f01fde651f43aa0f3f80a5890eb, type: 3}
 --- !u!1001 &3545370583950807879

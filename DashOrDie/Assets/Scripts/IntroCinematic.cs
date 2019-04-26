@@ -29,6 +29,8 @@ public class IntroCinematic : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public ParticleSystem dashParticle;
+
     [HideInInspector]
     public Rigidbody2D rb;
 
@@ -128,7 +130,9 @@ public class IntroCinematic : MonoBehaviour
         FindObjectOfType<AudioManagerScript>().Play("Jump");
         rb.velocity = new Vector2(3, 10);
         yield return new WaitForSeconds(1.25f);
+        rb.velocity = new Vector2(0, 0);
         animator.SetBool("IsJumping", false);
+        dashParticle.Emit(20);
         trail.SetActive(true);
         animator.SetBool("IsDashing", true);
         rb.velocity = Vector2.right * 32;
