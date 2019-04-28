@@ -492,10 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0bdd95232db944d8c7f634668c0660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 9188672768454030154}
-  laserLight: {fileID: 1229938832111274382}
-  laser2: {fileID: 4280506685951053535}
-  laserLight2: {fileID: 4280506686147115993}
+  laser: {fileID: 4280506685951053535}
+  laserLight: {fileID: 4280506686147115993}
+  laserBlock: {fileID: 503777869458215588}
+  laser2: {fileID: 9188672768454030154}
+  laserLight2: {fileID: 1229938832111274382}
 --- !u!1 &9188672768454030154
 GameObject:
   m_ObjectHideFlags: 0
