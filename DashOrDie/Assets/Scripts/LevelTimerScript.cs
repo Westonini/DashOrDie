@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class LevelTimerScript : MonoBehaviour
 {
-    public bool thirtySecondTimer = false;
-    public bool oneMinuteTimer = false;
-    public bool twoMinuteTimer = false;
-    public bool threeMinuteTimer = false;
+    public int timerInSeconds = 0; //Change this in the inspector in each scene to change the duration of the timer (in seconds).
 
     private LevelManager LM;
 
@@ -29,27 +26,13 @@ public class LevelTimerScript : MonoBehaviour
         {
             LM.endTimer = false;
 
-            if (thirtySecondTimer == true) //If the oneMinuteTimer bool is enabled in the inspector the timer will be set to 60 seconds.
+            if (timerInSeconds >= 1) //If the timer is 1 or greater, set the timer to the given time.
             {
-                LM.timer = 30;
+                LM.timer = timerInSeconds;
                 LM.dontResetTimer = true;
             }
-            else if (oneMinuteTimer == true) //If the oneMinuteTimer bool is enabled in the inspector the timer will be set to 60 seconds.
-            {
-                LM.timer = 60;
-                LM.dontResetTimer = true;
-            }
-            else if (twoMinuteTimer == true) //If the twoMinuteTimer bool is enabled in the inspector the timer will be set to 120 seconds.
-            {
-                LM.timer = 120;
-                LM.dontResetTimer = true;
-            }
-            else if (threeMinuteTimer == true) //If the threeMinuteTimer bool is enabled in the inspector the timer will be set to 180 seconds.
-            {
-                LM.timer = 180;
-                LM.dontResetTimer = true;
-            }
-            else //If no options for the timer are selected in the inspector, end the timer immediately as the game begins.
+
+            else //If the timer is below 1, end the timer.
             {
                 LM.endTimer = true;
             }
