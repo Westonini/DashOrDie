@@ -324,47 +324,52 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
-        if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Right
+       if (HS.gameOver != true)
         {
-            buttonDownDashUpRight = true;
-            trail2.SetActive(true);
+
+            //If the user presses the dash key while moving AND if the dash isn't on cooldown, the boolean indicating a dash will be set to true.
+            if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Right
+            {
+                buttonDownDashUpRight = true;
+                trail2.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Left
+            {
+                buttonDownDashUpLeft = true;
+                trail2.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Right
+            {
+                buttonDownDashDownRight = true;
+                trail2.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Left
+            {
+                buttonDownDashDownLeft = true;
+                trail2.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Right
+            {
+                buttonDownDashRight = true;
+                trail.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Left
+            {
+                buttonDownDashLeft = true;
+                trail.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false && isCloseToCeiling == false)// && dashedUpOnce == false) //Dashes Up
+            {
+                buttonDownDashUp = true;
+                trail.SetActive(true);
+            }
+            else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsOnCooldown == false && isGrounded == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false) //Dashes Down
+            {
+                buttonDownDashDown = true;
+                trail.SetActive(true);
+            }
         }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isNextToWall == false && isCloseToCeiling == false) //Dashes Up-Left
-        {
-            buttonDownDashUpLeft = true;
-            trail2.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight == true && horizontalInput > 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Right
-        {
-            buttonDownDashDownRight = true;
-            trail2.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && isGrounded == false && isNextToWall == false) //Dashes Down-Left
-        {
-            buttonDownDashDownLeft = true;
-            trail2.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && facingRight == true && horizontalInput > 0 &&  dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Right
-        {
-            buttonDownDashRight = true;
-            trail.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && facingRight != true && horizontalInput < 0 && dashIsOnCooldown == false && (Input.GetButton("DownArrow") == false && Input.GetButton("UpArrow") == false || isCloseToCeiling == true) && isNextToWall == false) //Dashes Left
-        {
-            buttonDownDashLeft = true;
-            trail.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("UpArrow") && dashIsOnCooldown == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false && isCloseToCeiling == false)// && dashedUpOnce == false) //Dashes Up
-        {
-            buttonDownDashUp = true;
-            trail.SetActive(true);
-        }
-        else if (Input.GetButtonDown("Dash") && Input.GetButton("DownArrow") && dashIsOnCooldown == false && isGrounded == false && Input.GetButton("LeftArrow") == false && Input.GetButton("RightArrow") == false) //Dashes Down
-        {
-            buttonDownDashDown = true;
-            trail.SetActive(true);
-        }
+
 
 
         if (Input.GetButton("DownArrow") && isGrounded == false) //If the player holds the down key while mid-air, they fall faster.

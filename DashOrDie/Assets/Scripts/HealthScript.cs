@@ -33,7 +33,8 @@ public class HealthScript : MonoBehaviour
     public bool recovery2;
     public float recoveryTime = 1.0f;
 
-    private bool gameOver = false;
+    [HideInInspector]
+    public bool gameOver = false;
     private bool playedgameOverSound = false;
 
     public int Health = 3;
