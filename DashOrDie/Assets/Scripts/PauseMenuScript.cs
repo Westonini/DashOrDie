@@ -85,6 +85,7 @@ public class PauseMenuScript : MonoBehaviour
         LM.endTimer = true;
         LM.dontResetTimer = false;
         LM.timer = 1001f;
+        LM.playerHealth = 3;
 
         Invoke("LoadMenu2", 0.035f);
     }

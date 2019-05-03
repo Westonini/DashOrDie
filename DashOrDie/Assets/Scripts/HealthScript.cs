@@ -84,6 +84,22 @@ public class HealthScript : MonoBehaviour
         instantiatedDiamondLocation1 = GameObject.Find("DiamondLocation1"); //These three locations are for where the diamonds get instantiated when the player gets hit.
         instantiatedDiamondLocation2 = GameObject.Find("DiamondLocation2");
         instantiatedDiamondLocation3 = GameObject.Find("DiamondLocation3");
+
+        Health = LM.playerHealth; //On the start of a room or level Health gets set to the value of playerHealth in the LevelManager script. This is used to carry over the health points through rooms.
+
+        if (Health == 2)
+        {
+            firstDiamondAnim.SetBool("1stDiamondGained", false);
+            firstDiamondAnim.SetBool("1stDiamondLost", true);
+        }
+        else if (Health == 1)
+        {
+            firstDiamondAnim.SetBool("1stDiamondGained", false);
+            firstDiamondAnim.SetBool("1stDiamondLost", true);
+            secondDiamondAnim.SetBool("2ndDiamondGained", false);
+            secondDiamondAnim.SetBool("2ndDiamondLost", true);
+        }
+
     }
 
     // Update is called once per frame
@@ -131,12 +147,13 @@ public class HealthScript : MonoBehaviour
                 if (gameOver == true && playedgameOverSound == false)
                 {
                     LM.playerHasDiedOnce = true;
+                    LM.playerHealth = 3;
                     FindObjectOfType<AudioManagerScript>().Play("GameOver");
                     PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                     StartCoroutine(FadeOut());
                     PC.GetComponent<Animator>().enabled = false;
                     PC.GetComponent<PlayerController>().enabled = false;
-                    playedgameOverSound = true;                  
+                    playedgameOverSound = true;
                 }
 
                 Invoke("FadeOutTransition", 1.5f);
@@ -188,6 +205,7 @@ public class HealthScript : MonoBehaviour
             if (gameOver == true && playedgameOverSound == false)
             {
                 LM.playerHasDiedOnce = true;
+                LM.playerHealth = 3;
                 FindObjectOfType<AudioManagerScript>().Play("GameOver");
                 PC.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 StartCoroutine(FadeOut());

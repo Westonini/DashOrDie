@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3498002044610693241}
   - component: {fileID: 3498002044610693234}
   - component: {fileID: 6981998789468711984}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BlackLaserTypeB
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 3498002045207313779}
   - component: {fileID: 3498002045207313780}
   - component: {fileID: 3498002045207313776}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 847969292905838128}
   - component: {fileID: 7953448692618634512}
   - component: {fileID: 8143459655056240527}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4085036987759785479}
   - component: {fileID: 2754230717674913054}
   - component: {fileID: 8885428212193935425}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3217799888048487678}
   - component: {fileID: 3217799888048487664}
   - component: {fileID: 2892751665535452615}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserBlueTypeA
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 3217799888391391732}
   - component: {fileID: 3217799888391391731}
   - component: {fileID: 3217799888391391690}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4284795642531734171}
   - component: {fileID: 4284795642531734148}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Flashing - BlueLaser_BlackLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,6 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 5045268812006982118}
   laserLight: {fileID: 5045268811683411168}
+  laserBlock: {fileID: 0}
   laser2: {fileID: 3217799888048487667}
   laserLight2: {fileID: 3217799888391391733}
 --- !u!1 &5045268811683411168
@@ -405,7 +406,7 @@ GameObject:
   - component: {fileID: 5045268811683411169}
   - component: {fileID: 5045268811683411174}
   - component: {fileID: 5045268811683411175}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +507,7 @@ GameObject:
   - component: {fileID: 5045268812006982123}
   - component: {fileID: 5045268812006982117}
   - component: {fileID: 7327574926311932805}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BlackLaserTypeA
   m_TagString: Hazard
   m_Icon: {fileID: 0}

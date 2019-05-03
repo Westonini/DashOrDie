@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3088507152349894919}
   - component: {fileID: 7156889164494562338}
   - component: {fileID: 8412649488784349714}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232682990951272574}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3232682992041027639}
   - component: {fileID: 3232682992041027638}
   - component: {fileID: 3232682992041027633}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserSpinMiddle
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 6797740389382513901}
   - component: {fileID: 6797740389382513891}
   - component: {fileID: 7426339623000785393}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack_
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 6797740390394876391}
   - component: {fileID: 6797740390394876384}
   - component: {fileID: 6797740390394876385}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

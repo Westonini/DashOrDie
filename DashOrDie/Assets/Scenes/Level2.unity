@@ -785,6 +785,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -859,6 +864,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -1934,6 +1949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2008,6 +2028,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -2289,6 +2319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2363,6 +2398,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -5074,6 +5119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5148,6 +5198,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -5404,6 +5464,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5488,6 +5553,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.2271234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -5881,6 +5956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5955,6 +6035,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -7229,6 +7319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7303,6 +7398,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -8101,6 +8206,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a20297a34adc084faa153ac50e5dd2e, type: 3}
+--- !u!4 &676015558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1640386812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &677265937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8327,6 +8438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8401,6 +8517,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.0158
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -10038,6 +10164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10112,6 +10243,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -11057,6 +11198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11131,6 +11277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -21049,6 +21205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21123,6 +21284,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -21722,6 +21893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21796,6 +21972,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -24450,6 +24636,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24524,6 +24715,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -25214,6 +25415,7 @@ MonoBehaviour:
   transition: {fileID: 2593174397957677737}
   transitionanim: {fileID: 2593174397320560609}
   pauseMenu: {fileID: 526078917}
+  lastLevel: 0
   timesHit_Flawless: {fileID: 1138019091}
   timesHit_One: {fileID: 973394919}
   timesHit_Two: {fileID: 1345286803}
@@ -36960,6 +37162,7 @@ Transform:
   - {fileID: 1004763842}
   - {fileID: 1799895262}
   - {fileID: 50723164}
+  - {fileID: 676015558}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37084,6 +37287,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1640386812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1632584457}
+    m_Modifications:
+    - target: {fileID: 626544157065992743, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9426858
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.44726562
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626544157065992741, guid: a57e8f01fde651f43aa0f3f80a5890eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a57e8f01fde651f43aa0f3f80a5890eb, type: 3}
 --- !u!1 &1640630183
 GameObject:
   m_ObjectHideFlags: 0
@@ -39031,6 +39303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39105,6 +39382,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -39330,6 +39617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39404,6 +39696,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -39587,6 +39889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39661,6 +39968,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -40791,6 +41108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackLaserTypeA (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2309277106575423843, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2309277106575423842, guid: 1a73e487e5d2fb04eb7928c299369aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40865,6 +41187,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309277106785815653, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840456189007765436, guid: 1a73e487e5d2fb04eb7928c299369aaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a73e487e5d2fb04eb7928c299369aaa, type: 3}
@@ -41980,7 +42312,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016882356, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -41991,7 +42323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09, y: 0.25}
+  m_Size: {x: 0.05623529, y: 0.25}
   m_EdgeRadius: 0
 --- !u!212 &655508789018515567
 SpriteRenderer:
@@ -42121,7 +42453,7 @@ GameObject:
   - component: {fileID: 3088507152087463004}
   - component: {fileID: 7156889164233230713}
   - component: {fileID: 8412649489048827721}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42139,7 +42471,7 @@ GameObject:
   - component: {fileID: 3088507152657034202}
   - component: {fileID: 7156889164669769471}
   - component: {fileID: 8412649488277924047}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43134,7 +43466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232682991224732965}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43168,7 +43500,7 @@ GameObject:
   - component: {fileID: 3232682991880559338}
   - component: {fileID: 3232682991880559339}
   - component: {fileID: 3232682991880559340}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserSpinMiddle
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -43342,7 +43674,7 @@ GameObject:
   - component: {fileID: 3232682992316040556}
   - component: {fileID: 3232682992316040557}
   - component: {fileID: 3232682992316040554}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserSpinMiddle
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -43358,7 +43690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232682993003307683}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43537,7 +43869,7 @@ GameObject:
   - component: {fileID: 6797740388346913594}
   - component: {fileID: 6797740388346913597}
   - component: {fileID: 6797740388346913596}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43715,7 +44047,7 @@ GameObject:
   - component: {fileID: 6797740389341713982}
   - component: {fileID: 7426339621554844460}
   - component: {fileID: 6797740389341713983}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack_
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -43879,7 +44211,7 @@ GameObject:
   - component: {fileID: 6797740389643372984}
   - component: {fileID: 7426339623265266858}
   - component: {fileID: 6797740389643372988}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpinningLaserBlack_
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -43993,7 +44325,7 @@ GameObject:
   - component: {fileID: 6797740390124584124}
   - component: {fileID: 6797740390124584123}
   - component: {fileID: 6797740390124584122}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VerticalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

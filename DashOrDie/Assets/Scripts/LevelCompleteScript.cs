@@ -12,6 +12,8 @@ public class LevelCompleteScript : MonoBehaviour
 
     private LevelManager LM;
 
+    public bool lastLevel = false;
+
     [Header("TimesHit")]
     public GameObject timesHit_Flawless;
     public GameObject timesHit_One;
@@ -185,8 +187,17 @@ public class LevelCompleteScript : MonoBehaviour
         transition.SetActive(true);
         transitionanim.SetBool("FadeOut", true);
         levelCompleteMenu.SetActive(false);
-        Invoke("NextLevel2", 0.035f);
 
+        if (lastLevel == false) //If it's not the last level then transition to next level, otherwise if it is transition to main menu.
+        {
+            Invoke("NextLevel2", 0.035f);
+        }
+        else
+        {
+            Invoke("ReturnToMainMenu2", 0.035f);
+            LM.endTimer = true;
+        }
+        
         LM.timesHit = 0;
         LM.playerHasDiedOnce = false;
         LM.finishedBeforeTimeLimit = true;
@@ -195,7 +206,7 @@ public class LevelCompleteScript : MonoBehaviour
 
     public void NextLevel2() //Loads next scene in build.
     {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);     
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);             
     }
 
     public void ReturnToMainMenu() //Turns off the LevelCompleteMenu, plays a button click sound, and starts the transition fade out. Also resets some of the LevelManager Script variables. Once the transition covers the screen, call ReturnToMainMenu2()

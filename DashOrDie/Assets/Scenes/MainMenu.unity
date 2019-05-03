@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 141572075}
   - component: {fileID: 141572077}
   - component: {fileID: 141572076}
+  - component: {fileID: 141572078}
   m_Layer: 5
   m_Name: RightBB
   m_TagString: Untagged
@@ -205,6 +206,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141572074}
   m_CullTransparentMesh: 0
+--- !u!95 &141572078
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141572074}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6cc6b313727a5d48b881fe432a8d085, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &243420890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2065,7 @@ GameObject:
   - component: {fileID: 1284784819}
   - component: {fileID: 1284784821}
   - component: {fileID: 1284784820}
+  - component: {fileID: 1284784822}
   m_Layer: 5
   m_Name: LeftBB
   m_TagString: Untagged
@@ -2108,6 +2129,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284784818}
   m_CullTransparentMesh: 0
+--- !u!95 &1284784822
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284784818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6cc6b313727a5d48b881fe432a8d085, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1353145409
 GameObject:
   m_ObjectHideFlags: 0

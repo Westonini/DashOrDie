@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
     public bool endTimer = false; //Ends the timer if-statement in Update()
     public bool finishedBeforeTimeLimit = true; //Tracks if the player finished before the timer ran out.
 
+    public int playerHealth = 3; //This int is used to carry over health from room-to-room.
+
+
     void Awake()
     {
         if (instance == null) //Makes the object not destroy itself when loading or restarting a scene.
