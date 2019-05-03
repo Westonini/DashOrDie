@@ -1,0 +1,11 @@
+If I ever decide to continue this project, here were some of my ideas:
+
+- Level select on main menu
+- SecurityCamera hazard
+- Spotlight (possible flickers; constantly moving in different directions)
+
+- Hide in crates/barrels mechanic
+- Level involving light/puzzles
+- Replace music with own
+- Create radio call-in partner character that informs the player about things.
+- On death, do an animation that turns player into ghost
