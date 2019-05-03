@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpotlightHazard : MonoBehaviour
 {
 
-    public GameObject lasers;
+    public Animator risingLavaAnim;
     public GameObject spotlights;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class SpotlightHazard : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            lasers.SetActive(true);
+            risingLavaAnim.SetBool("IsRising", true);
             spotlights.SetActive(false);
             FindObjectOfType<AudioManagerScript>().Play("Warning");
         }

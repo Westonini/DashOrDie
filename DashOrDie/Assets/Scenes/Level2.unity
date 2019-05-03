@@ -766,6 +766,7 @@ MonoBehaviour:
   recovery: 0
   recovery2: 0
   recoveryTime: 1
+  gameOver: 0
   Health: 3
 --- !u!4 &120279316 stripped
 Transform:
@@ -6855,6 +6856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLava: 1
 --- !u!61 &582311515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9046,6 +9048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLava: 1
 --- !u!61 &750047781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9056,7 +9059,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -9807,6 +9810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLava: 1
 --- !u!61 &842894266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9817,7 +9821,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -26668,6 +26672,7 @@ MonoBehaviour:
   recovery: 0
   recovery2: 0
   recoveryTime: 1
+  gameOver: 0
   Health: 3
 --- !u!1001 &1187922580
 PrefabInstance:
@@ -34049,6 +34054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b25e20a6aa7468f56d469996b2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLava: 1
 --- !u!61 &1384545464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49326,6 +49332,7 @@ MonoBehaviour:
   recovery: 0
   recovery2: 0
   recoveryTime: 1
+  gameOver: 0
   Health: 3
 --- !u!1 &1951887918
 GameObject:

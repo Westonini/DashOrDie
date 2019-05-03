@@ -8,6 +8,8 @@ public class InstakillHazardScript : MonoBehaviour
 
     private HealthScript HS;
 
+    public bool isLava = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,11 @@ public class InstakillHazardScript : MonoBehaviour
     //If the player gets hit by a hazard (while not dashing, not recovering, and health is greater than 0) they will get knocked back and set the playerHurt bool on the HealthScript to true.
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && PC.dashIsActive == false && HS.recovery == false && HS.recovery2 == false && HS.Health > 0)
+        if (collision.tag == "Player" && PC.dashIsActive == false && (HS.recovery == false && HS.recovery2 == false || isLava == true) && HS.Health > 0)
         {
             HS.playerInstakilled = true;
         }
+
     }
 }
 
